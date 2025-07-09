@@ -3,6 +3,7 @@ import React from "react";
 import { FaGreaterThan } from "react-icons/fa6";
 import { TbMathGreater } from "react-icons/tb";
 import { FaLessThan } from "react-icons/fa6";
+import { FaArrowRightLong,FaArrowLeftLong } from "react-icons/fa6";
 
 interface navLink {
   preLinkName: string;
@@ -23,7 +24,7 @@ export default function BottomNav({ links }: { links: navLink }) {
         href={links.preLink}
       >
         {links.preLink === "" ? "" :(<>
-        <FaLessThan/> {links.preLinkName}
+        <FaArrowLeftLong/> {links.preLinkName}
         </>)}
       </Link>
       <Link
@@ -31,7 +32,7 @@ export default function BottomNav({ links }: { links: navLink }) {
         href={links.postLink}
       >
         {links.postLinkName}
-        <TbMathGreater />
+        <FaArrowRightLong />
       </Link>
     </div>
   );

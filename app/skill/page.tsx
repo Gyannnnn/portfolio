@@ -120,7 +120,7 @@ export default function SkillPage() {
           })}
         </div>
         <div>
-          <h1 className="pb-2">skills.ts</h1>
+          <h1 className="">skills.ts</h1>
           <CodeComponent code={code} />
         </div>
         <div>

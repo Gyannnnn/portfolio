@@ -40,7 +40,7 @@ export default async function StatsPage() {
             </CardHeader>
             <CardContent className="flex flex-col items-center">
               <h1 className="statsCount text-purple-600">1934</h1>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm dark:text-gray-300 text-black">
                 Unique page visits since july 2025
               </p>
             </CardContent>
@@ -70,7 +70,7 @@ export default async function StatsPage() {
           {githubData.map((data, index) => (
             <Card
               key={index}
-              className="sm:w-[338px] w-full sm:mr-6 mb-6 bg-transparent"
+              className={`sm:w-[338px] w-full sm:mr-6 mb-6 ${index === 0 ? "bg-green-600/30":"bg-transparent"}`}
             >
               <CardHeader className="text-xl">{data.title}</CardHeader>
               <CardContent className="text-5xl font-bold">

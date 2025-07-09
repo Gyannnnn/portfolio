@@ -43,7 +43,7 @@ export default function page() {
               Get Resume <IoDocumentTextOutline />
             </Button>
             <Button className="center" variant="outline">
-              <MdEmail />
+              <MdEmail className="text-red-500" />
               Send Mail
             </Button>
           </div>

@@ -7,13 +7,12 @@ export default function GithubGraph() {
   const colorScheme: "light" | "dark" | undefined =
     theme === "light" || theme === "dark" ? theme : undefined;
   return (
-    <div className="w-full overflow-x-auto ">
-      <h1>{theme}</h1>
+    <div className="w-full overflow-x-auto pl-10 ">      
       <GitHubCalendar
         username="gyannnnn"
         colorScheme={colorScheme}
-        blockSize={15}
-        blockMargin={6}
+        blockSize={14}
+        blockMargin={5}
         fontSize={14}
         year="last"
       />

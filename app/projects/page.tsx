@@ -29,7 +29,7 @@ export default function ProjectsPage() {
           <Projects/>
         </div>
         <div >
-          <h1 className="pb-2">projects.ts</h1>
+          <h1 className="">projects.ts</h1>
           <CodeComponent code={code}/>
         </div>
         <div>

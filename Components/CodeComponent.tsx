@@ -3,7 +3,7 @@ import { CodeBlock } from "@/components/ui/code-block";
 
 export default function CodeComponent({ code }: { code: string }) {
   return (
-    <div className=" mx-auto w-full">
+    <div className=" mx-auto w-full pt-2">
     
       <CodeBlock
         language="jsx"
