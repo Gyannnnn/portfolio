@@ -55,7 +55,7 @@ export default function Projects() {
     <div className="w-full  flex flex-wrap justify-start ">
       {projects.map((project, index) => (
         <Link key={index} href={`/projects/${project.title}`} className="group">
-          <Card className="w-[350px] h-[150px] mr-4 mb-2 p-4 transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-lg">
+          <Card className="sm:w-[350px] w-full h-[150px] mr-4 mb-2 p-4 transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-lg">
             <CardTitle>{project.title}</CardTitle>
             <CardDescription>{project.description}</CardDescription>
           </Card>

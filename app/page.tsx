@@ -29,7 +29,7 @@ export default function page() {
         </h1>
 
         <p className="content">
-          I am a dedicated Software Engineer specializing in full-stack
+          I am a dedicated Software Developer specializing in full-stack
           application development. I enjoy crafting responsive web solutions
           using modern technologies like Next.js, React, and Tailwind CSS.
           Currently, I am expanding my skills into mobile development with React
