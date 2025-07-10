@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { FaEye, FaRegHeart } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-import GitHubCalendar from "react-github-calendar";
+
 import GithubGraph from "@/Components/GithubGraph";
 import BottomNav from "@/Components/BottomNav";
 import axios from "axios";
@@ -13,10 +13,21 @@ const links = {
   postLink: "/",
 };
 
+type GitHubUser = {
+  public_repos: number;
+  followers: number;
+  following: number;
+  company: string | null;
+  location: string | null;
+  created_at: string;
+};
+
 export default async function StatsPage() {
-  const data = await axios.get("https://api.github.com/users/gyannnnn");
+  const data = await axios.get<GitHubUser>(
+    "https://api.github.com/users/gyannnnn"
+  );
   const gitData = data.data;
-  console.log(gitData);
+
   const githubData = [
     { title: "Hireable", Data: "Yes" },
     { title: "Total Public Repository", Data: gitData.public_repos },
@@ -58,7 +69,10 @@ export default async function StatsPage() {
             </CardContent>
           </Card>
         </div>
-        <h1 className="heading">Github Stats (since {new Date(gitData.created_at).toLocaleDateString()})</h1>
+        <h1 className="heading">
+          Github Stats (since{" "}
+          {new Date(gitData.created_at).toLocaleDateString()})
+        </h1>
 
         <h1 className="text-lg">
           Insights and metrics about my GitHub profile
@@ -70,7 +84,9 @@ export default async function StatsPage() {
           {githubData.map((data, index) => (
             <Card
               key={index}
-              className={`sm:w-[338px] w-full sm:mr-6 mb-6 ${index === 0 ? "bg-green-600/30":"bg-transparent"}`}
+              className={`sm:w-[338px] w-full sm:mr-6 mb-6 ${
+                index === 0 ? "bg-green-600/30" : "bg-transparent"
+              }`}
             >
               <CardHeader className="text-xl">{data.title}</CardHeader>
               <CardContent className="text-5xl font-bold">

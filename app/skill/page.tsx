@@ -90,7 +90,7 @@ export default function SkillPage() {
         <p className="content">
           As a full-stack software developer, I build scalable and user-friendly
           web applications using modern technologies like Next.js, React, and
-          Tailwind CSS. I'm currently expanding my skill set into mobile
+          Tailwind CSS. am currently expanding my skill set into mobile
           development with React Native and Expo to deliver seamless
           cross-platform experiences. I enjoy solving real-world
           problems—especially those faced by students—through impactful, fast,

@@ -2,19 +2,21 @@
 import Link from "next/link";
 import { FaUserGraduate } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
-import { IoSunnyOutline } from "react-icons/io5";
+import { IoIosMenu } from "react-icons/io";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import Commandinput from './CommandInput'
+import Commandinput from "./CommandInput";
 import ThemeToggler from "./ThemeToggler";
 
-export default function Navbar() { 
+export default function Navbar() {
   return (
-    <div className="fixed top-0 z-50 h-16 w-screen flex items-center justify-between px-13 
+    <div
+      className="fixed top-0 z-50 h-16 w-screen flex items-center sm:justify-between justify-center sm:px-13 
   backdrop-blur-lg border-b border-dashed 
   bg-white/30 dark:bg-zinc-900/30 
   border-black/10 dark:border-white/20
-  text-black dark:text-white">
-      <div className="center gap-6">
+  text-black dark:text-white"
+    >
+      <div className="center gap-6 max-sm:hidden">
         <div className="flex gap-2 center">
           <FaUserGraduate />
           {""} <h1 className="text-xl font-bold">gyanpatra.dev</h1>
@@ -35,16 +37,15 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <div className="center gap-4 text-xl">
+      <div className="center gap-4 text-xl max-sm:w-full max-sm:justify-around">
         <div className="center">
-          <Commandinput/>
+          <Commandinput />
         </div>
-        <div>
+        <div className="center gap-4">
           <FaGithub />
-        </div>
-        <div>
           <ThemeToggler />
-        </div>
+          <IoIosMenu className="sm:hidden" />
+        </div>        
       </div>
     </div>
   );

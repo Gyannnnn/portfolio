@@ -1,9 +1,8 @@
 import BottomNav from "@/Components/BottomNav";
 import CodeComponent from "@/Components/CodeComponent";
 import Timeline from "@/Components/Timeline";
-import { div } from "framer-motion/client";
+
 import React from "react";
-import { FaGraduationCap } from "react-icons/fa";
 
 const timeline = [
   {
@@ -62,7 +61,7 @@ export default function EducationPage() {
         </h1>
         <p className="content">
           Education has always been the cornerstone of my journey into the tech
-          world. Pursuing a Bachelor's in Information Technology at Veer
+          world. Pursuing a Bachelors&apos; in Information Technology at Veer
           Surendra Sai University Of Technology Burla, Sambalpur has provided me
           with a solid foundation in computer science and software engineering
           principles.
@@ -76,7 +75,7 @@ export default function EducationPage() {
           <Timeline data={timeline} />
         </div>
         <div>
-          <h1 >educationJourney.ts</h1>
+          <h1>educationJourney.ts</h1>
           <CodeComponent code={code} />
         </div>
         <BottomNav links={links} />

@@ -39,10 +39,10 @@ export default function AboutPage() {
         <p className="content">
           Beyond coding, I thrive in collaborative environments and enjoy
           tackling challenging problems with creative solutions. I aim to
-          contribute to impactful projects that make a difference in users'
+          contribute to impactful projects that make a difference in users&apos;
           lives.
         </p>
-        {/* code part */}
+
         <div>
           <h1>aboutMe.ts</h1>
           <CodeComponent code={code} />

@@ -1,9 +1,6 @@
 "use client";
 
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
-import { Github } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   Card,

@@ -196,13 +196,13 @@ html, body {
     @apply dark:bg-zinc-950 bg-background/30 text-foreground;
   }
   .container{
-    @apply  flex-1  min-h-screen  dark:bg-zinc-950 bg-background  flex-col pt-10 px-10  dark:text-white text-black pb-10
+    @apply  flex-1  min-h-screen  dark:bg-zinc-950 bg-background  flex-col pt-10 sm:px-10 px-5  dark:text-white text-black pb-10
   }
   .link{
-    @apply text-blue-500 cursor-all-scroll
+    @apply text-blue-500 cursor-all-scroll max-sm:text-xs
   }
   .span{
-    @apply text-white  font-bold
+    @apply text-white  font-bold max-sm:text-xs
   }
   .center{
     display: flex;
