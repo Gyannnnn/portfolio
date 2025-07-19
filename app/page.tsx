@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
+import { auth } from "@/auth";
+import { getIntro } from "./actions/getIntroduction";
+import Link from "next/link";
 
 const code = `// app/api/welcome/route.js
 import { NextResponse } from "next/server";
@@ -19,40 +22,48 @@ const links = {
   postLink: "/about",
 };
 
-export default function page() {
-  return (
-    <div className="container flex flex-col pt-10 sm:px-10 gap-4 dark:text-white text-black">
-      <div className="contentContainer">
-        <h1 className="heading">Gyanaranjan Patra</h1>
-        <h1 className="text-3xl font-bold dark:text-gray-400 text-gray-500">
-          A coder by day, problem-solver by night!
-        </h1>
+export default async function page() {
+  const session = await auth();
+  const data = await getIntro();
+  const introPageData = data.data.introduction;
+  if (data.statusText === "OK") {
+    return (
+      <div className="container flex flex-col pt-10 sm:px-10 gap-4 dark:text-white text-black">
+        <div className="contentContainer">
+          <h1 className="heading">{introPageData.userName}</h1>
+          <h1 className="text-3xl font-bold dark:text-gray-400 text-gray-500">
+            {introPageData.userHeading}
+          </h1>
 
-        <p className="content">
-          I am a dedicated Software Developer specializing in full-stack
-          application development. I enjoy crafting responsive web solutions
-          using modern technologies like Next.js, React, and Tailwind CSS.
-          Currently, I am expanding my skills into mobile development with React
-          Native and Expo, aiming to deliver comprehensive, user-centric
-          software solutions.
-        </p>
-        <div className="flex  justify-start items-center gap-4">
-          <Button>
-            Get Resume <IoDocumentTextOutline />
-          </Button>
-          <Button className="center" variant="outline">
-            <MdEmail className="text-red-500" />
-            Send Mail
-          </Button>
+          <p className="content">{introPageData.userBio}</p>
+          <div className="flex  justify-start items-center gap-4">
+            <Link target="_blank" href={introPageData.userResumeLink}>
+              <Button>
+                Get Resume <IoDocumentTextOutline />
+              </Button>
+            </Link>
+            <Link target="_blank" href={`mailto:${introPageData.userEmail}`}>
+              <Button className="center" variant="outline">
+                <MdEmail className="text-red-500" />
+                Send Mail
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>
 
-      <div className="w-full flex flex-col ">
-        <h1>welcome.ts</h1>
-        <CodeComponent code={code} />
-      </div>
+        <div className="w-full flex flex-col ">
+          <h1>welcome.ts</h1>
+          <CodeComponent code={code} />
+        </div>
 
-      <BottomNav links={links} />
-    </div>
-  );
+        <BottomNav links={links} />
+      </div>
+    );
+  } else {
+    return (
+      <div className="container items-center justify-center">
+        <h1>Nothing found !</h1>
+      </div>
+    );
+  }
 }

@@ -3,14 +3,7 @@
 import React from "react";
 import { useTheme } from "next-themes";
 
-import {
-  FaHtml5,
-  FaReact,
-  FaGithub,
-  FaGitAlt,
-  FaNpm,
-  FaPython,
-} from "react-icons/fa";
+import { FaReact, FaGithub, FaGitAlt, FaNpm, FaPython } from "react-icons/fa";
 import {
   SiCss3,
   SiExpress,
@@ -28,10 +21,12 @@ import { Button } from "@/components/ui/button";
 import CodeComponent from "@/Components/CodeComponent";
 import BottomNav from "@/Components/BottomNav";
 
+import { FaHtml5, FaCss3, FaJs } from "react-icons/fa";
+
 const skillData = [
   { icon: FaHtml5, skill: "HTML", iconColor: "#e44d26" },
-  { icon: SiCss3, skill: "CSS", iconColor: "#264de4" },
-  { icon: IoLogoJavascript, skill: "JavaScript", iconColor: "#f0db4f" },
+  { icon: FaCss3, skill: "CSS", iconColor: "#264de4" },
+  { icon: FaJs, skill: "JavaScript", iconColor: "#f0db4f" },
   { icon: RiTailwindCssFill, skill: "Tailwind", iconColor: "#38bdf8" },
   { icon: FaReact, skill: "React", iconColor: "#61dbfb" },
   { icon: IoLogoNodejs, skill: "Node.js", iconColor: "#68a063" },
@@ -74,8 +69,6 @@ const links = {
   preLink: "/projects",
   postLink: "/experience",
 };
-
-
 
 export default function SkillPage() {
   const { theme } = useTheme();

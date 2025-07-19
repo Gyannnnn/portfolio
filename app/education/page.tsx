@@ -7,20 +7,10 @@ import React from "react";
 const timeline = [
   {
     title: "Started B.Tech",
-    date: "August 2022",
+    date: "August 2023",
     description: "Joined VSSUT in Information Technology.",
   },
-  {
-    title: "Learned MERN Stack",
-    date: "March 2023",
-    description:
-      "Built several full-stack projects using MongoDB, Express, React, and Node.js.",
-  },
-  {
-    title: "Joined Enigma Coding Club",
-    date: "August 2023",
-    description: "Started contributing to open source and college projects.",
-  },
+
   {
     title: "Started 100xDevs",
     date: "June 2024",

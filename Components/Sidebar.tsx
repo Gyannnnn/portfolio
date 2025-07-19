@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { FaUserGraduate, FaProjectDiagram, FaTools, FaBriefcase, FaGraduationCap, FaEnvelope, FaChartBar, FaHome } from "react-icons/fa";
+import { FaUserGraduate, FaProjectDiagram, FaTools, FaBriefcase, FaGraduationCap, FaEnvelope, FaChartBar, FaHome,FaEdit } from "react-icons/fa";
 
 const sections = [
   { sectionName: "Introduction", link: "/", icon: <FaHome className="text-lg" /> },
@@ -14,6 +14,7 @@ const sections = [
   { sectionName: "Education", link: "/education", icon: <FaGraduationCap className="text-lg" /> },
   { sectionName: "Contact", link: "/contact", icon: <FaEnvelope className="text-lg" /> },
   { sectionName: "Stats", link: "/stats", icon: <FaChartBar className="text-lg" /> },
+  { sectionName: "Edit Portfolio", link: "/signin", icon: <FaEdit className="text-lg" /> },
 ];
 
 export default function Sidebar() {
