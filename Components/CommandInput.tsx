@@ -100,7 +100,7 @@ export default function Commandinput() {
     <>
       <div
         onClick={() => setOpen((open) => !open)}
-        className="center gap-4 bg-transparent sm:px-4 px-2 py-2 rounded-sm text-muted-foreground border max-sm:w-[200px]"
+        className="center gap-4 bg-transparent px-4 py-2 rounded-sm text-muted-foreground"
       >
         <p className="text-sm">Search sections ...</p>
         <p className="text-muted-foreground text-sm max-sm:hidden">
