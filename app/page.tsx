@@ -15,6 +15,19 @@ export async function GET() {
   return NextResponse.json({ message: "Welcome to my portfolio!" }, { status: 200 });
 }`;
 
+// test code for the welcome page
+export const dynamic = "force-dynamic";
+
+export const metadata = {
+  title: "Welcome",
+  description: "Welcome to my portfolio",
+};
+
+// Links for the bottom navigation
+// These links will be used in the BottomNav component
+// preLinkName and postLinkName are used to display text before and after the link
+// preLink and postLink are the actual links to navigate to
+
 const links = {
   preLinkName: "",
   postLinkName: "About Me",
