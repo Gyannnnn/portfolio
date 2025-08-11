@@ -1,4 +1,0 @@
-# .eslintignore
-lib/generated/
-dist/
-node_modules/
