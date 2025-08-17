@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
-import { SessionProvider } from "next-auth/react";
+
 import Sidebar from "@/Components/Sidebar";
 import { ReactLenis } from "@/lib/Lenis/Lenis";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -33,16 +33,16 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <SessionProvider>
+         
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Navbar />
-              <main className="flex justify-between pt-16 ">
+              <main className="flex justify-between xl:justify-start pt-16 ">
                 <Sidebar />
                 {children}
               </main>
               <Footer />
             </ThemeProvider>
-          </SessionProvider>
+        
         </body>
       </ReactLenis>
     </html>

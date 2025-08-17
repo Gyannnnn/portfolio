@@ -17,8 +17,8 @@ export const signin = async ({
 
     console.log("Signed in successfully:", response.data);
     return response.data;
-  } catch (error: any) {
-    console.error("Sign in failed:", error.response?.data || error.message);
+  } catch (error: unknown) {
+    console.error("Sign in failed:", error instanceof Error ? error.message : String(error));
     throw error;
   }
 };
