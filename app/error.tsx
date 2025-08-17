@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { GiTerror } from "react-icons/gi";
+
 export default function error() {
   return (
     <div className="container">

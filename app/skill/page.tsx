@@ -5,7 +5,6 @@ import { useTheme } from "next-themes";
 
 import { FaReact, FaGithub, FaGitAlt, FaNpm, FaPython } from "react-icons/fa";
 import {
-  SiCss3,
   SiExpress,
   SiMongodb,
   SiShadcnui,
@@ -13,7 +12,7 @@ import {
   SiPostman,
   SiTypescript,
 } from "react-icons/si";
-import { IoLogoJavascript, IoLogoNodejs, IoLogoVercel } from "react-icons/io5";
+import { IoLogoNodejs, IoLogoVercel } from "react-icons/io5";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { FcLinux } from "react-icons/fc";

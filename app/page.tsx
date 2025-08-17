@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
-import { auth } from "@/auth";
+
 import { getIntro } from "./actions/getIntroduction";
 import Link from "next/link";
 
@@ -12,8 +12,21 @@ const code = `// app/api/welcome/route.js
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  return NextResponse.json({ message: "Welcome to my portfolio!" }, { status: 200 });
-}`;
+  const message = "Welcome to Task X!";
+  const tips = ["Stay consistent", "Plan your day", "Track your tasks"];
+
+  const data = {
+    success: true,
+    message,
+    tips,
+    author: "Gyanaranjan Patra",
+    timestamp: new Date().toISOString(),
+  };
+
+  return NextResponse.json(data);
+}
+`;
+
 
 // test code for the welcome page
 export const dynamic = "force-dynamic";
@@ -36,12 +49,12 @@ const links = {
 };
 
 export default async function page() {
-  const session = await auth();
+ 
   const data = await getIntro();
   const introPageData = data.data.introduction;
   if (data.statusText === "OK") {
     return (
-      <div className="container flex flex-col pt-10 sm:px-10 gap-4 dark:text-white text-black">
+      <div className="container ">
         <div className="contentContainer">
           <h1 className="heading">{introPageData.userName}</h1>
           <h1 className="text-3xl font-bold dark:text-gray-400 text-gray-500">
