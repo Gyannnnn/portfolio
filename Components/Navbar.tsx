@@ -6,6 +6,7 @@ import { IoIosMenu } from "react-icons/io";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Commandinput from "./CommandInput";
 import ThemeToggler from "./ThemeToggler";
+import { MenuIcon } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -41,11 +42,11 @@ export default function Navbar() {
         <div className="center">
           <Commandinput />
         </div>
-        <div className="center gap-4">
-          <FaGithub />
-          <ThemeToggler />
-          <IoIosMenu className="sm:hidden" />
-        </div>        
+        <Link href="https://github.com/gyannnnn" target="_blank">
+            <FaGithub />
+          </Link>
+          <ThemeToggler />      
+               
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import {
   Smile,
   SunIcon,
   User,
+  MenuIcon,
 } from "lucide-react";
 import {
   FaUserGraduate,
@@ -35,6 +36,9 @@ import {
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
+import { FaGithub } from "react-icons/fa6";
+import ThemeToggler from "./ThemeToggler";
+import { IoIosMenu } from "react-icons/io";
 
 const sections = [
   {
@@ -98,17 +102,29 @@ export default function Commandinput() {
 
   return (
     <>
-      <div
-        onClick={() => setOpen((open) => !open)}
-        className="center gap-4 bg-transparent px-4 py-2 rounded-sm text-muted-foreground"
-      >
-        <p className="text-sm">Search sections ...</p>
-        <p className="text-muted-foreground text-sm max-sm:hidden">
-          Press{" "}
-          <kbd className="bg-muted text-muted-foreground pointer-events-none inline-flex h-5 items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 select-none">
-            <span className="text-xs">⌘</span>J
-          </kbd>
-        </p>
+      <div className="max-sm:w-screen flex justify-between max-sm:px-2 sm:justify-between">
+        <div
+          onClick={() => setOpen((open) => !open)}
+          className="center gap-4 bg-transparent px-4 py-2 rounded-sm text-muted-foreground border max-sm:w-1/2"
+        >
+          <p className="text-sm">Search sections ...</p>
+          <p className="text-muted-foreground text-sm max-sm:hidden">
+            Press{" "}
+            <kbd className="bg-muted text-muted-foreground pointer-events-none inline-flex h-5 items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 select-none">
+              <span className="text-xs">⌘</span>J
+            </kbd>
+          </p>
+        </div>
+        <div className="center gap-4 sm:hidden">
+          <Link href="https://github.com/gyannnnn" target="_blank">
+            <FaGithub />
+          </Link>
+          <ThemeToggler />
+          <MenuIcon
+            onClick={() => setOpen((open) => !open)}
+            className="sm:hidden"
+          />
+        </div>
       </div>
       <CommandDialog
         className="bg-zinc-900 "

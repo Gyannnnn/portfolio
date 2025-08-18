@@ -27,7 +27,6 @@ export async function GET() {
 }
 `;
 
-
 // test code for the welcome page
 export const dynamic = "force-dynamic";
 
@@ -49,7 +48,6 @@ const links = {
 };
 
 export default async function page() {
- 
   const data = await getIntro();
   const introPageData = data.data.introduction;
   if (data.statusText === "OK") {
@@ -75,14 +73,11 @@ export default async function page() {
               </Button>
             </Link>
           </div>
-        </div>
-
-        <div className="w-full flex flex-col ">
           <h1>welcome.ts</h1>
           <CodeComponent code={code} />
-        </div>
 
-        <BottomNav links={links} />
+          <BottomNav links={links} />
+        </div>
       </div>
     );
   } else {
