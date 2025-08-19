@@ -207,7 +207,7 @@ body {
     align-items: center;
   }
   .description {
-    @apply text-3xl font-bold dark:text-gray-400 text-gray-500;
+    @apply text-3xl font-bold dark:text-gray-400 text-gray-500 max-sm:w-full;
   }
   .heading {
     @apply text-4xl font-bold;

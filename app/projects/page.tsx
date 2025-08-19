@@ -25,9 +25,9 @@ export default function ProjectsPage() {
       <div className="contentContainer">
         <h1 className="heading">Projects</h1>
         <h1 className="description">A lot of ideas, but some are still under construction!</h1>
-        <div className="w-full">
+        
           <Projects/>
-        </div>
+        
         <div >
           <h1 className="">projects.ts</h1>
           <CodeComponent code={code}/>
