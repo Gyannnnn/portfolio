@@ -52,7 +52,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="w-full  flex flex-wrap sm:justify-start justify-center ">
+    <div className="w-full  flex flex-wrap sm:justify-start justify-center max-sm:pl-3 ">
       {projects.map((project, index) => (
         <Link key={index} href={`/projects/${project.title}`} className="group">
           <Card className="w-[350px] h-[150px] mr-4 mb-2 p-4 transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-lg">

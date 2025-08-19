@@ -102,10 +102,10 @@ export default function Commandinput() {
 
   return (
     <>
-      <div className="max-sm:w-screen flex justify-between max-sm:px-2 sm:justify-between">
+      <div className="max-sm:w-screen flex justify-around max-sm:px-2 sm:justify-between gap-2">
         <div
           onClick={() => setOpen((open) => !open)}
-          className="center gap-4 bg-transparent px-4 py-2 rounded-sm text-muted-foreground border max-sm:w-1/2"
+          className="center gap-4 bg-transparent px-4 py-2 rounded-sm text-muted-foreground border max-sm:w-full justify-start"
         >
           <p className="text-sm">Search sections ...</p>
           <p className="text-muted-foreground text-sm max-sm:hidden">
