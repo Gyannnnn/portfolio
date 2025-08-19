@@ -60,8 +60,8 @@ export default async function ProjectDetails({
             </Button>
           ))}
         </div>
-        <div className="w-full flex flex-wrap">
-          <div className="w-1/2 flex flex-col justify-start">
+        <div className="w-full flex max-sm:flex-col max-sm:gap-4 flex-wrap ">
+          <div className="w-1/2 flex flex-col justify-start max-sm:w-full">
             <h1 className="text-lg font-bold">Features</h1>
             <ul className="list-disc pl-4">
               {features.map((feature, index) => (
@@ -69,7 +69,7 @@ export default async function ProjectDetails({
               ))}
             </ul>
           </div>
-          <div className="w-1/2 flex flex-col justify-start">
+          <div className="w-1/2 flex flex-col justify-start max-sm:w-full">
             <h1 className="text-lg font-bold">Challenges</h1>
             <ul className="list-disc pl-4">
               {features.map((feature, index) => (
@@ -78,8 +78,8 @@ export default async function ProjectDetails({
             </ul>
           </div>
         </div>
-        <div className="w-full flex flex-wrap">
-          <div className="w-1/2 flex flex-col justify-start">
+        <div className="w-full flex  max-sm:flex-col max-sm:gap-4 ">
+          <div className="w-1/2 flex flex-col justify-start max-sm:w-full">
             <h1 className="text-lg font-bold">Features</h1>
             <ul className="list-disc pl-4">
               {features.map((feature, index) => (
@@ -87,7 +87,7 @@ export default async function ProjectDetails({
               ))}
             </ul>
           </div>
-          <div className="w-1/2 flex flex-col justify-start">
+          <div className="w-1/2 flex flex-col justify-start max-sm:w-full">
             <h1 className="text-lg font-bold">Feedback</h1>
             <h1>
               For feedback or suggestions, contact me at:{" "}
