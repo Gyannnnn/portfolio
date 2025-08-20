@@ -8,7 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { LoaderCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export default function page() {
+export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,7 +31,7 @@ export default function page() {
       );
       toast.success("Successfully signedin");
       router.push("/");
-    } catch (error) {
+    } catch{
       toast.error("Failed to sign in try again");
       setIsLoading(false);
     } finally {
