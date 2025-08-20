@@ -47,7 +47,7 @@ const projects = [
     image: "/projects/veerpreps.png",
     link: "/projects/veerpreps",
   },
-  // You can add more projects here
+  
 ];
 
 export default function Projects() {
