@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React, { useState } from "react";
-import axios from "axios";
+
 import toast, { Toaster } from "react-hot-toast";
 import { LoaderCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,26 +18,28 @@ export default function Page() {
 
     const formData = new FormData(e.currentTarget);
     const email = formData.get("email");
-    const password = formData.get("passwrod");
-
-    console.log("Email" + email, "Password : " + password);
-
+    const password = formData.get("password");
+    console.log(email,password);
     try {
       setIsLoading(true);
-      await axios.post(
-        "https://portfolio-be-flame.vercel.app/api/v1/auth/signin",
-        {
-          userEmail: email,
-          userPassword: password,
-        }
-      );
-      toast.success("Successfully signedin");
-      router.push("/");
-    } catch{
-      toast.error("Failed to sign in try again");
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: email,
+        password: password,
+      });
+      console.log(res)
+      if (res?.error) {
+        console.error(res.error);
+        toast.error("Login Failed");
+        setIsLoading(false);
+      } else {
+        toast.success("Login successful");
+        router.push("/");
+      }
+    } catch (error: any) {
       setIsLoading(false);
-    } finally {
-      setIsLoading(false);
+      console.error(error);
+      toast.error(error.response?.data?.message || "Something went wrong");
     }
   };
 

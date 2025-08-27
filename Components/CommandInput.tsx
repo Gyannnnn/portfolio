@@ -21,6 +21,7 @@ import {
   FaEnvelope,
   FaChartBar,
   FaHome,
+  FaEdit,
 } from "react-icons/fa";
 
 import {
@@ -81,6 +82,11 @@ const sections = [
     link: "/stats",
     icon: <FaChartBar className="text-lg" />,
   },
+  {
+    sectionName:"Manage content",
+    link:"/signin",
+    icon:<FaEdit className="text-lg" />
+  }
 ];
 
 export default function Commandinput() {
