@@ -11,7 +11,7 @@ import { getIntro } from "./actions/getIntroduction";
 import Link from "next/link";
 
 import { getToken } from "@/utils/auth";
-import EditContent from "@/Components/EditContent";
+import EditContent from "@/Components/HomepageEdit/EditHomePage";
 import { auth } from "@/auth";
 
 const code = `// app/api/welcome/route.js

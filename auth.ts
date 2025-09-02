@@ -29,7 +29,7 @@ export const { handlers, auth } = NextAuth({
           );
 
           const res = await axios.post<SignInResponse>(
-            "http://localhost:8000/api/v1/auth/signin",
+            "https://portfolio-be-flame.vercel.app/api/v1/auth/signin",
             {
               userEmail: email,
               userPassword: password,
@@ -40,6 +40,7 @@ export const { handlers, auth } = NextAuth({
           if (!user) {
             return null;
           }
+          console.log(user.userRole);
           return {
             id: user.id,
             email: user.userEmail,
@@ -67,7 +68,7 @@ export const { handlers, auth } = NextAuth({
           (token.name = user.name),
           (token.email = user.email),
           (token.jwt_token = (user as any).jwt_token),
-           token.role = (user as any).role;
+           (token.role = (user as any).role);
       }
       return token;
     },

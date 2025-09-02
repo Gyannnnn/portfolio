@@ -2,6 +2,7 @@ import BottomNav from "@/Components/BottomNav";
 import CodeComponent from "@/Components/CodeComponent";
 import React from "react";
 import { getAbout } from "../actions/getAboutPage";
+import EditAbout from "@/Components/AboutpageEdit/EditAbout";
 
 const code = `const superpower = () => {
   return "Crafting full-stack solutions with MERN, delivering clean UI, efficient APIs, and developer-friendly tools!";
@@ -20,7 +21,6 @@ console.log("My superpower is: " + superpower());
 console.log("My core skills are:", skills.join(", "));
 console.log("My motto:", motto);
 `;
-
 
 const links = {
   preLinkName: "Introduction",
@@ -42,6 +42,7 @@ export default async function AboutPage() {
     return (
       <div className="container">
         <div className="contentContainer">
+          <EditAbout/>
           <h1 className="heading">About Gyanranjan</h1>
           <h1 className="description">{aboutPageData.aboutHeading}</h1>
           <p className="content">{aboutPageData.about}</p>
