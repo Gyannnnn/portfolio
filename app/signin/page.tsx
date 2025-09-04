@@ -36,10 +36,11 @@ export default function Page() {
         toast.success("Login successful");
         router.push("/");
       }
-    } catch (error: any) {
+    } catch (error) {
+      const err = error as Error
       setIsLoading(false);
       console.error(error);
-      toast.error(error.response?.data?.message || "Something went wrong");
+      toast.error(err.message || "Something went wrong");
     }
   };
 

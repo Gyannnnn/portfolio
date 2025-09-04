@@ -9,6 +9,15 @@ interface skillPageResposne {
     id: string;
     skillHeading: string;
     skillDescription: string;
+    skills: [
+      {
+        id: string;
+        skillIcon: string;
+        skillName: string;
+        skillIconColor: string;
+        skillSectionId: string;
+      }
+    ];
     portfolioId: string;
   };
 }
@@ -23,17 +32,18 @@ export default async function Skill() {
     const skillHeading = data.skillSection.skillHeading;
     const skillDescription = data.skillSection.skillDescription;
     const portfolioId = data.skillSection.portfolioId;
+    console.log("Skills : " + data.skillSection.skills[0].skillName);
 
     return (
       <div className="w-screen">
         <EditSkill
           skillPageData={{ id, skillHeading, skillDescription, portfolioId }}
         />
-        <SkillPage />
+        <SkillPage skillSection={data.skillSection} />
       </div>
     );
   } catch (error) {
-    const err = error as Error
-    return <Error error={err.message}/>
+    const err = error as Error;
+    return <Error error={err.message} />;
   }
 }
