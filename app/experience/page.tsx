@@ -2,30 +2,11 @@ import BottomNav from "@/Components/BottomNav";
 import CodeComponent from "@/Components/CodeComponent";
 import Timeline from "@/Components/Timeline";
 import React from "react";
+import { experienceSection } from "@/app/types/type";
+import axios from "axios";
+import EditExperience from "@/Components/ExperiencepageEdit/EditExperience";
 
-const timeline = [
-  {
-    title: "Started B.Tech",
-    date: "August 2023",
-    description: "Joined VSSUT in Information Technology.",
-  },
-  {
-    title: "Learned MERN Stack",
-    date: "March 2023",
-    description:
-      "Built several full-stack projects using MongoDB, Express, React, and Node.js,PostgreSql.",
-  },
-  {
-    title: "Joined Enigma Coding Club",
-    date: "August 2023",
-    description: "Started contributing to open source and college projects.",
-  },
-  {
-    title: "Started 100xDevs",
-    date: "June 2024",
-    description: "Learning backend system design and real-world skills.",
-  },
-];
+
 
 const code = `
 const experience = [
@@ -60,27 +41,40 @@ const links = {
   preLink: "/skill",
   postLink: "/education",
 };
+export default async function ExperiancePage() {
+  const res = await axios.get<experienceSection>(
+    "https://portfolio-be-flame.vercel.app/api/v1/experience/get"
+  );
+  const data = res.data;
+  console.log(data.experienceSection.experience);
 
-export default function ExperiancePage() {
+  const timelineData = data.experienceSection.experience.map((exp) => ({
+    title: exp.experienceName,
+    date: new Date(exp.joiningDate).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+    }),
+    description: exp.experienceDescription,
+  }));
+
   return (
     <div className="container">
+      <EditExperience
+        experienceSectionProps={{
+          portfolioId: data.experienceSection.portfolioId,
+          experienceSectionId: data.experienceSection.id,
+        }}
+      />
       <div className="contentContainer">
         <h1 className="heading">Experience</h1>
         <h1 className="description">
-          You need it to get the job, but the job’s what gives it!
+          {data.experienceSection.experienceHeading}
         </h1>
         <p className="content">
-          Throughout my journey as a developer, I’ve explored the latest
-          technologies while also becoming best friends with bugs at 2 AM. From
-          building full-stack web apps with the MERN stack to untangling
-          confusing console errors, my growth has come from both structured
-          learning—like 100xDevs and hands-on internships—and late-night
-          problem-solving marathons. Every project has made me better at writing
-          clean, maintainable code, working with teams, and most
-          importantly—fixing bugs before they break me.
+          {data.experienceSection.experienceDescription}
         </p>
         <div>
-          <Timeline data={timeline} />
+          <Timeline data={timelineData} />
         </div>
         <div>
           <h1>experience.ts</h1>

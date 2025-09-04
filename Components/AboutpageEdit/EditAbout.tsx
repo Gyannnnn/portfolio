@@ -22,6 +22,6 @@ export default async function EditAbout() {
         );
       }
     } catch (error) {
-      return <div>ddd</div>;
+      return 
     }
 }

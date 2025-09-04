@@ -2,25 +2,14 @@ import Error from "@/Components/Error";
 import SkillPage from "@/Components/SkillPage";
 import EditSkill from "@/Components/SkillPageEdit/EditSkill";
 import axios from "axios";
+import { SkillSection } from "../types/type";
+
+
 
 interface skillPageResposne {
-  message: string;
-  skillSection: {
-    id: string;
-    skillHeading: string;
-    skillDescription: string;
-    skills: [
-      {
-        id: string;
-        skillIcon: string;
-        skillName: string;
-        skillIconColor: string;
-        skillSectionId: string;
-      }
-    ];
-    portfolioId: string;
-  };
+  skillSection: SkillSection;
 }
+
 
 export default async function Skill() {
   try {

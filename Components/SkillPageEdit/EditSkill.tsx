@@ -17,7 +17,7 @@ export default async function EditSkill({
     const user = session?.user;
     const token = session?.user.jwt_token;
     const role = user?.role;
-    console.log("role ........" + role);
+ 
 
     if (user) {
       return (

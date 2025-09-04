@@ -1,4 +1,3 @@
-
 export interface Skill {
   id: string;
   skillIcon: string;
@@ -13,4 +12,23 @@ export interface SkillSection {
   skillDescription: string;
   skills: Skill[];
   portfolioId: string;
+}
+
+export interface experience {
+  id: string;
+  experienceName: string;
+  joiningDate: string;
+  experienceDescription: string;
+  experienceSectionId: string;
+}
+
+export interface experienceSection {
+  message: string;
+  experienceSection: {
+    id: string;
+    experienceHeading: string;
+    experienceDescription: string;
+    portfolioId:string
+    experience: experience[];
+  };
 }
