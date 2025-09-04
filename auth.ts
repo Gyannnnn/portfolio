@@ -34,8 +34,7 @@ export const { handlers, auth } = NextAuth({
               userEmail: email,
               userPassword: password,
             }
-          );
-          
+          );          
           const { user, token } = res.data;
           if (!user) {
             return null;
