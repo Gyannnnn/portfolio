@@ -3,31 +3,98 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="min-h-[96px] py-2 w-screen text-gray-400 bg-zinc-950 flex flex-col  items-center justify-center sm:px-0 px-2 border-t border-white/20  text-sm max-sm:text-xs">
-      <div className="center w-full max-sm:flex-col">
-        <p>© 2018 - 2025.</p>
-        <p>
-          Built with <span className="span">Next.js</span>,{" "}
-          <span className="span">shadcn/ui</span> and{" "}
-          <span className="span">Tailwind CSS</span>
-        </p>
-        <p>
-          Coded in <span className="span">VScode editor</span> and deployed on{" "}
-          <span className="span">Vercel</span>
-        </p>
+    <footer className="min-h-[96px] py-6 w-full 
+      bg-background 
+      backdrop-blur-md border-t border-solid
+      border-gray-200/50 dark:border-gray-700/50
+      text-gray-600 dark:text-gray-400
+      shadow-sm dark:shadow-gray-900/20
+      transition-all duration-300 ease-in-out">
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-28">
+        {/* Main Footer Content */}
+        <div className="flex flex-col items-center justify-center space-y-4 text-sm max-sm:text-xs">
+          
+          {/* Copyright and Tech Stack */}
+          <div className="flex flex-wrap items-center justify-center gap-4 max-sm:flex-col max-sm:gap-2">
+            <p className="text-gray-500 dark:text-gray-400 font-medium">
+              © 2018 - 2025
+            </p>
+            
+            <div className="flex flex-wrap items-center justify-center gap-2 text-center">
+              <p className="text-gray-600 dark:text-gray-300">
+                Built with{" "}
+                <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 
+                  text-gray-800 dark:text-gray-200 font-semibold 
+                  transition-colors duration-200">
+                  Next.js
+                </span>
+                ,{" "}
+                <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 
+                  text-gray-800 dark:text-gray-200 font-semibold 
+                  transition-colors duration-200">
+                  shadcn/ui
+                </span>
+                {" "}and{" "}
+                <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 
+                  text-gray-800 dark:text-gray-200 font-semibold 
+                  transition-colors duration-200">
+                  Tailwind CSS
+                </span>
+              </p>
+            </div>
+            
+            <div className="flex flex-wrap items-center justify-center gap-2 text-center">
+              <p className="text-gray-600 dark:text-gray-300">
+                Coded in{" "}
+                <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 
+                  text-gray-800 dark:text-gray-200 font-semibold 
+                  transition-colors duration-200">
+                  VScode editor
+                </span>
+                {" "}and deployed on{" "}
+                <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 
+                  text-gray-800 dark:text-gray-200 font-semibold 
+                  transition-colors duration-200">
+                  Vercel
+                </span>
+              </p>
+            </div>
+          </div>
+
+          {/* Developer Info */}
+          <div className="text-center pt-2 border-t border-gray-200/50 dark:border-gray-700/50 w-full">
+            <p className="text-gray-600 dark:text-gray-300">
+              Developed by{" "}
+              <Link 
+                className="font-semibold text-blue-600 dark:text-blue-400 
+                  hover:text-blue-700 dark:hover:text-blue-300 
+                  transition-colors duration-200
+                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900
+                  rounded px-1" 
+                href="https://github.com/gyannnnn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Gyanranjan Patra
+              </Link>
+              {" "}· Source code available on{" "}
+              <Link 
+                className="font-semibold text-blue-600 dark:text-blue-400 
+                  hover:text-blue-700 dark:hover:text-blue-300 
+                  transition-colors duration-200
+                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900
+                  rounded px-1" 
+                href="https://github.com/gyannnnn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </Link>
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="text-center">
-        <p>
-          Developed by{" "}
-          <Link className="link" href="https://github.com/gyannnnn">
-            Gyanranjan Patra
-          </Link>{" "}
-          · Source code available on{" "}
-          <Link className="link" href={"https://github.com/gyannnnn"}>
-            GitHub
-          </Link>
-        </p>
-      </div>
-    </div>
+    </footer>
   );
 }

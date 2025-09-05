@@ -70,7 +70,7 @@ export default function EditAboutPage({
         <DrawerTrigger>
           <Button>
             <EditIcon />
-            Edit content
+            <h1 className="hidden sm:block">Edit content</h1>
           </Button>
         </DrawerTrigger>
         <DrawerContent className="flex flex-col items-center">

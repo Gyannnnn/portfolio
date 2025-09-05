@@ -36,7 +36,7 @@ export default function RootLayout({
          
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Navbar />
-              <main className="flex justify-between  pt-16 px-16 ">
+              <main className="flex justify-between  pt-16 sm:px-16 ">
                 <Sidebar />
                 {children}
               </main>
