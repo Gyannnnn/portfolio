@@ -1,22 +1,11 @@
 import BottomNav from "@/Components/BottomNav";
 import CodeComponent from "@/Components/CodeComponent";
 import Timeline from "@/Components/Timeline";
+import axios from "axios";
+import { educationSection } from "../types/type";
+import EducationDrawer from "@/Components/EducationPageEdit/EducationDrwer";
+import { auth } from "@/auth";
 
-import React from "react";
-
-const timeline = [
-  {
-    title: "Started B.Tech",
-    date: "August 2023",
-    description: "Joined VSSUT in Information Technology.",
-  },
-
-  {
-    title: "Started 100xDevs",
-    date: "June 2024",
-    description: "Learning backend system design and real-world skills.",
-  },
-];
 
 const code = `
 const educationJourney = {
@@ -41,28 +30,43 @@ const links = {
   postLink: "/contact",
 };
 
-export default function EducationPage() {
+export default async function EducationPage() {
+  const res = await axios.get<educationSection>(
+    "https://portfolio-be-flame.vercel.app/api/v1/education/get"
+  );
+  const session = await auth();
+  const role = session?.user.role;
+  const token = session?.user.jwt_token;
+  const data = res.data;
+  console.log(data.educationSection.education);
+
+  const timelineData = data.educationSection.education.map((edu) => ({
+    title: edu.educationName,
+    date: new Date(edu.joiningDate).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+    }),
+    description: edu.educationDescription,
+  }));
+
   return (
     <div className="container">
       <div className="contentContainer">
+        <EducationDrawer
+          eduDrawerDataProps={{
+            role: role as string,
+            token: token as string,
+            portfolioId: data.educationSection.portfolioId,
+            educationSectionId: data.educationSection.id,
+          }}
+        />
         <h1 className="heading">Education</h1>
         <h1 className="description">
-          Theory’s great, but the real learning begins in the VScode editor!
+          {data.educationSection.educationHeading}
         </h1>
-        <p className="content">
-          Education has always been the cornerstone of my journey into the tech
-          world. Pursuing a Bachelors&apos; in Information Technology at Veer
-          Surendra Sai University Of Technology Burla, Sambalpur has provided me
-          with a solid foundation in computer science and software engineering
-          principles.
-        </p>
-        <p>
-          My academic journey has been complemented by hands-on projects and
-          coursework, enabling me to build practical skills and a deep
-          understanding of modern technological solutions.
-        </p>
+        <p className="content">{data.educationSection.educationDescription}</p>
         <div>
-          <Timeline data={timeline} />
+          <Timeline data={timelineData} />
         </div>
         <div>
           <h1>educationJourney.ts</h1>

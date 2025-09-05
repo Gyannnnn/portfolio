@@ -28,7 +28,26 @@ export interface experienceSection {
     id: string;
     experienceHeading: string;
     experienceDescription: string;
-    portfolioId:string
+    portfolioId: string;
     experience: experience[];
+  };
+}
+
+export interface education {
+  id: string;
+  educationName: string;
+  joiningDate: string;
+  educationDescription: string;
+  educationSectionId: string;
+}
+
+export interface educationSection {
+  message: string;
+  educationSection: {
+    id: string;
+    educationHeading: string;
+    educationDescription: string;
+    portfolioId: string;
+    education: education[];
   };
 }

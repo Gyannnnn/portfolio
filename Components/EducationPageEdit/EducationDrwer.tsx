@@ -12,49 +12,49 @@ import {
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Divide, EditIcon, Loader } from "lucide-react";
+import { EditIcon, Loader } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-export default function ExperienceDrawer({
-  expDrawerDataProps,
+export default function EducationDrawer({
+  eduDrawerDataProps,
 }: {
-  expDrawerDataProps: {
+  eduDrawerDataProps: {
     role: string;
-    experienceSectionId: string;
+    educationSectionId: string;
     portfolioId: string;
     token: string;
   };
 }) {
   const [IsLoading, setLoading] = useState(false);
-  const [ExperienceLoading, setExpLoading] = useState(false);
+  const [EducationLoading, setEducationLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (expDrawerDataProps.role === "Visitor") {
+    if (eduDrawerDataProps.role === "Visitor") {
       toast.error("Visitors are not allowed");
       return;
     }
     const formData = new FormData(e.currentTarget);
 
-    const experienceDescription = formData.get("experienceDescription");
-    const experienceHeading = formData.get("experienceHeading");
+    const educationHeading = formData.get("educationHeading");
+    const educationDescription = formData.get("educationDescription");
 
-    const loadingId = toast.loading("Updating experience page");
+    const loadingId = toast.loading("Updating education page");
     setLoading(true);
     try {
       const res = await axios.put(
-        "https://portfolio-be-flame.vercel.app/api/v1/experience/update",
+        "https://portfolio-be-flame.vercel.app/api/v1/education/update",
         {
-          experienceDescription,
-          experienceHeading,
-          portfolioId: expDrawerDataProps.portfolioId,
+          educationHeading,
+          educationDescription,
+          portfolioId: eduDrawerDataProps.portfolioId,
         },
         {
           headers: {
-            Authorization: `Bearer ${expDrawerDataProps.token}`,
+            Authorization: `Bearer ${eduDrawerDataProps.token}`,
           },
         }
       );
@@ -68,44 +68,44 @@ export default function ExperienceDrawer({
       toast.error("Failed to update");
     }
   };
-  const addExperienceHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+  const addEducationHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (expDrawerDataProps.role === "Visitor") {
+    if (eduDrawerDataProps.role === "Visitor") {
       toast.error("Visitors are not allowed");
       return;
     }
     const formData = new FormData(e.currentTarget);
 
-    const experienceName = formData.get("experienceName");
-    const experienceDescription = formData.get("newExperienceDescription");
+    const educationName = formData.get("educationName");
+    const educationDescription = formData.get("newEducationDescription");
     const joiningDate = formData.get("joiningDate");
     const joiningDateStr = joiningDate!.toString();
-    const loadingId = toast.loading("Adding new Experience");
-    setExpLoading(true);
+    const loadingId = toast.loading("Adding new Education");
+    setEducationLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/v1/experience/add-exp",
+        "http://localhost:8000/api/v1/education/add-education",
         {
-          experienceName,
-          experienceDescription,
+          educationName,
+          educationDescription,
           joiningDate: new Date(joiningDateStr).toISOString(),
-          experienceSectionId: expDrawerDataProps.experienceSectionId,
+          educationSectionId: eduDrawerDataProps.educationSectionId,
         },
         {
           headers: {
-            Authorization: `Bearer ${expDrawerDataProps.token}`,
+            Authorization: `Bearer ${eduDrawerDataProps.token}`,
           },
         }
       );
       console.log(res);
       toast.remove(loadingId);
-      toast.success("Experience added successfully ");
-      setExpLoading(false);
+      toast.success("Education added successfully ");
+      setEducationLoading(false);
     } catch (error) {
-      setExpLoading(false);
+      setEducationLoading(false);
       toast.remove(loadingId);
-      toast.error("Failed to Add new Experience");
+      toast.error("Failed to Add new Education");
     }
   };
 
@@ -128,22 +128,21 @@ export default function ExperienceDrawer({
             className="sm:w-1/2 flex flex-col gap-4"
           >
             <div className="flex flex-col gap-2">
-              <Label>Experience Heading</Label>
+              <Label>Education Heading</Label>
               <Input
-                name="experienceHeading"
+                name="educationHeading"
                 placeholder="Enter New Heading"
               ></Input>
             </div>
             <div className="flex flex-col gap-2">
-              <Label>Experience description</Label>
+              <Label>Education description</Label>
               <Textarea
-                name="experienceDescription"
-                placeholder="Enter new experience section description"
+                name="educationDescription"
+                placeholder="Enter new education section description"
               />
             </div>
 
             <div></div>
-
             <DrawerFooter>
               <Button type="submit">
                 {IsLoading ? (
@@ -151,29 +150,29 @@ export default function ExperienceDrawer({
                     <Loader className="animate-spin " /> <h1>Updating</h1>
                   </div>
                 ) : (
-                  "Update experience Page"
+                  "Update education Page"
                 )}
               </Button>
             </DrawerFooter>
           </form>
           <form
-            onSubmit={addExperienceHandler}
+            onSubmit={addEducationHandler}
             className="sm:w-1/2 flex flex-col gap-4"
           >
-            <h1>Add new Experience</h1>
+            <h1>Add new Education</h1>
             <div className="flex flex-col gap-2">
-              <Label>Experience Name</Label>
+              <Label>Education title</Label>
               <Input
                 required
-                name="experienceName"
-                placeholder="Enter Experience "
+                name="educationName"
+                placeholder="Enter Education "
               ></Input>
             </div>
             <div className="flex flex-col gap-2">
-              <Label>Experience Description</Label>
+              <Label>Education Description</Label>
               <Textarea
-                name="newExperienceDescription"
-                placeholder="Enter new experience section description"
+                name="newEducationDescription"
+                placeholder="Enter education description"
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -185,13 +184,13 @@ export default function ExperienceDrawer({
               ></Input>
             </div>
             <Button type="submit">
-              {ExperienceLoading ? (
+              {EducationLoading ? (
                 <div className="flex gap-2">
                   <Loader className="animate-spin " />{" "}
-                  <h1>Adding new experience</h1>
+                  <h1>Adding new Education</h1>
                 </div>
               ) : (
-                "Add new experience"
+                "Add new education"
               )}
             </Button>
           </form>
