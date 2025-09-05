@@ -3,34 +3,11 @@ import Link from "next/link";
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaExternalLinkAlt } from "react-icons/fa";
-// const techStacks = [
-//   { name: "Nextjs" },
-//   { name: "Typescript" },
-//   { name: "Shadcn Ui" },
-//   { name: "Tailwind Css" },
-//   { name: "PostgreSQL" },
-//   { name: "Prisma & ORM" },
-// ];
 import axios from "axios";
 import { ProjectDetailsResponse } from "@/app/types/type";
+import ProjectDrawer from "@/Components/ProjectPageEdit/ProjectDrawer";
+import { auth } from "@/auth";
 
-// const features = [
-//   { feature: "API to track and display profile views in real-time." },
-//   {
-//     feature:
-//       "Love count feature to allow visitors to express appreciation for the work.",
-//   },
-//   { feature: "Implemented server actions using the latest Next.js features." },
-//   {
-//     feature:
-//       "Dynamic project listing with slug-based routing for detailed pages.",
-//   },
-//   { feature: "Mobile-responsive and optimized for all devices." },
-//   {
-//     feature:
-//       "Integration with MongoDB using Mongoose for efficient data management.",
-//   },
-// ];
 
 export default async function ProjectDetails({
   params,
@@ -39,7 +16,7 @@ export default async function ProjectDetails({
 }) {
   const title = await (await params).title;
   const projectName = decodeURI(title);
-
+  const session = await auth()
   const res = await axios.get<ProjectDetailsResponse>(
     `https://portfolio-be-flame.vercel.app/api/v1/projects/project/${projectName}`
   );
@@ -50,6 +27,9 @@ export default async function ProjectDetails({
   return (
     <div className="container">
       <div className="contentContainer justify-start">
+       {
+          session?.user?( <ProjectDrawer token={session.user.jwt_token as string} role={session.user.role}  id={data.results.id} />):""
+       }
         <div className="w-full flex justify-start">
           <Link
             href="/projects"

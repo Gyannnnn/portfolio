@@ -1,10 +1,12 @@
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { FaEye, FaRegHeart } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
+
 
 import GithubGraph from "@/Components/GithubGraph";
 import BottomNav from "@/Components/BottomNav";
 import axios from "axios";
+import React from "react";
+import LikeButton from "@/Components/LikeButton";
 
 const links = {
   preLinkName: "Contact",
@@ -22,11 +24,21 @@ type GitHubUser = {
   created_at: string;
 };
 
+type statsData = {
+  message: string;
+  data: { views: number; likes: number };
+};
+
 export default async function StatsPage() {
-  const data = await axios.get<GitHubUser>(
+  const gitDataRes = await axios.get<GitHubUser>(
     "https://api.github.com/users/gyannnnn"
   );
-  const gitData = data.data;
+  const statsData = await axios.get<statsData>(
+    "https://portfolio-be-flame.vercel.app/api/v1/stats/get"
+  );
+  const data = statsData.data;
+  const gitData = gitDataRes.data;
+  console.log(data);
 
   const githubData = [
     { title: "Hireable", Data: "Yes" },
@@ -36,6 +48,8 @@ export default async function StatsPage() {
     { title: "Current Company", Data: gitData.company },
     { title: "Location", Data: gitData.location },
   ];
+
+
   return (
     <div className="container">
       <div className="contentContainer">
@@ -50,7 +64,7 @@ export default async function StatsPage() {
               <h1 className="font-bold">Total views</h1>
             </CardHeader>
             <CardContent className="flex flex-col items-center">
-              <h1 className="statsCount text-purple-600">1934</h1>
+              <h1 className="statsCount text-purple-600">{data.data.views}</h1>
               <p className="text-sm dark:text-gray-300 text-black">
                 Unique page visits since july 2025
               </p>
@@ -62,10 +76,8 @@ export default async function StatsPage() {
               <h1 className="font-bold">Appreciation Count</h1>
             </CardHeader>
             <CardContent className="flex flex-col items-center">
-              <h1 className="statsCount text-red-600">245</h1>
-              <Button className="">
-                <FaRegHeart /> <h1>Love this portfolio</h1>
-              </Button>
+              <h1 className="statsCount text-red-600">{data.data.likes}</h1>
+              <LikeButton/>
             </CardContent>
           </Card>
         </div>

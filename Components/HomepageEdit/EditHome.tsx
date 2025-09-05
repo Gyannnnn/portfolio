@@ -87,7 +87,7 @@ export default function EditHome({
         <DrawerTrigger>
           <Button>
             <EditIcon />
-            Edit content
+            <h1 className="hidden sm:block">Edit content</h1>
           </Button>
         </DrawerTrigger>
         <DrawerContent className="flex flex-col items-center">
@@ -95,7 +95,7 @@ export default function EditHome({
             <DrawerTitle>Edit Home page contents</DrawerTitle>
             <DrawerDescription>This action cannot be undone.</DrawerDescription>
           </DrawerHeader>
-          <form onSubmit={handleSubmit} className="w-1/2 flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="sm:w-1/2 flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <Label>Heading</Label>
               <Input name="heading" placeholder="Enter New Heading"></Input>

@@ -18,12 +18,14 @@ import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-export default function EditAboutPage({
+export default function ProjectDrawer({
   token,
   role,
+  id,
 }: {
   token: string;
   role: string;
+  id: string;
 }) {
   const [IsLoading, setLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,17 +37,26 @@ export default function EditAboutPage({
     }
     const formData = new FormData(e.currentTarget);
 
-    const aboutHeading = formData.get("aboutHeading");
-    const about = formData.get("about");
-
-    const loadingId = toast.loading("Editing");
+    const projectName = formData.get("projectName");
+    const projectDescription = formData.get("projectDescription");
+    const githubLink = formData.get("githubLink");
+    const deployedLink = formData.get("deployedLink");
+    console.log(id,
+          projectName,
+          projectDescription,
+          githubLink,
+          deployedLink)
+    const loadingId = toast.loading("Updating");
     setLoading(true);
     try {
       const res = await axios.put(
-        "http://localhost:8000/api/v1/about/update",
+        "https://portfolio-be-flame.vercel.app/api/v1/projects/project/update",
         {
-          aboutHeading,
-          about,
+          id,
+          projectName,
+          projectDescription,
+          githubLink,
+          deployedLink,
         },
         {
           headers: {
@@ -70,25 +81,42 @@ export default function EditAboutPage({
         <DrawerTrigger>
           <Button>
             <EditIcon />
-            <h1 className="hidden sm:block">Edit content</h1>
+            Edit content
           </Button>
         </DrawerTrigger>
         <DrawerContent className="flex flex-col items-center">
           <DrawerHeader>
-            <DrawerTitle>Edit About Page Contents</DrawerTitle>
+            <DrawerTitle>Edit Projects details</DrawerTitle>
             <DrawerDescription>This action cannot be undone.</DrawerDescription>
           </DrawerHeader>
           <form onSubmit={handleSubmit} className="w-1/2 flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <Label>About Heading</Label>
+              <Label>Project Name</Label>
               <Input
-                name="aboutHeading"
-                placeholder="Enter New Heading"
+                name="projectName"
+                placeholder="Enter Project Name"
               ></Input>
             </div>
             <div className="flex flex-col gap-2">
-              <Label>About description</Label>
-              <Textarea name="about" placeholder="Enter new bio" />
+              <Label>Project Description</Label>
+              <Textarea
+                name="projectDescription"
+                placeholder="Enter new Description"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label>Github Link</Label>
+              <Input
+                name="githubLink"
+                placeholder="Enter New Github Link"
+              ></Input>
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label>Deployed Link</Label>
+              <Input
+                name="deployedLink"
+                placeholder="Enter New Deployed Link"
+              ></Input>
             </div>
             <DrawerFooter>
               <Button type="submit">
@@ -97,13 +125,32 @@ export default function EditAboutPage({
                     <Loader className="animate-spin " /> <h1>Updating</h1>
                   </div>
                 ) : (
-                  "Update About Page"
+                  "Update Project"
                 )}
               </Button>
               <DrawerClose>
                 <Button variant="outline">Cancel</Button>
               </DrawerClose>
             </DrawerFooter>
+          </form>
+          <form action="" className="w-1/2 flex flex-col gap-4 mb-10">
+            <h1>Add feature</h1>
+            <div className="flex flex-col gap-2">
+              <Label>Feature</Label>
+              <Input
+                name="deployedLink"
+                placeholder="Enter New Feature"
+              ></Input>
+            </div>
+            <Button type="submit">
+              {IsLoading ? (
+                <div className="flex gap-2">
+                  <Loader className="animate-spin " /> <h1>Adding</h1>
+                </div>
+              ) : (
+                "Add New Feature"
+              )}
+            </Button>
           </form>
         </DrawerContent>
         <Toaster position="top-center" />
