@@ -2,16 +2,14 @@
 import Link from "next/link";
 import { FaUserGraduate } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
-import { IoIosMenu } from "react-icons/io";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Commandinput from "./CommandInput";
 import ThemeToggler from "./ThemeToggler";
-import { MenuIcon } from "lucide-react";
 
 export default function Navbar() {
   return (
     <div
-      className="fixed top-0 z-50 h-16 w-screen flex items-center sm:justify-between justify-center sm:px-13 
+      className="fixed top-0 z-50 h-16 w-screen flex items-center sm:justify-between justify-center sm:px-28 
   backdrop-blur-lg border-b border-dashed 
   bg-white/30 dark:bg-zinc-900/30 
   border-black/10 dark:border-white/20
@@ -26,12 +24,6 @@ export default function Navbar() {
           <Link href={""}>Home</Link>
           <div className="center relative w-20 ">
             <Link className="center" href={""}>
-              Blog
-              <FaExternalLinkAlt className="absolute top-0 right-2 text-xs" />
-            </Link>
-          </div>
-          <div className="center  relative w-24  ">
-            <Link className="center" href={""}>
               Resume
               <FaExternalLinkAlt className="absolute top-0 right-2 text-xs" />
             </Link>
@@ -43,10 +35,9 @@ export default function Navbar() {
           <Commandinput />
         </div>
         <Link href="https://github.com/gyannnnn" target="_blank">
-            <FaGithub />
-          </Link>
-          <ThemeToggler />      
-               
+          <FaGithub />
+        </Link>
+        <ThemeToggler />
       </div>
     </div>
   );

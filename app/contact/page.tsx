@@ -9,7 +9,7 @@ export default function ContactPage() {
         <h1 className="description">
           Get in touch before I hit `npm start` again!
         </h1>
-        <div className="">
+        <div className="w-full flex items-start">
           <ContactFormTab/>
         </div>
       </div>
