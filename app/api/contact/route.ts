@@ -37,6 +37,7 @@ export async  function POST(req: Request) {
     if (error) return Response.json({ ok: false, error: "Send failed" }, { status: 500 });
     return Response.json({ ok: true }, { status: 200 });
   } catch (err) {
-    return Response.json({ ok: false, error: "Unexpected error" }, { status: 500 });
+
+    return Response.json({ ok: false, error: "Unexpected error",err }, { status: 500 });
   }
 }

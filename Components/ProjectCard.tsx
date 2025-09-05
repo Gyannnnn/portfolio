@@ -62,7 +62,7 @@ type projectPageProps = {
 
 export default function Projects({data}:projectPageProps) {
   return (
-    <div className="w-full  flex flex-wrap max-sm:flex-col sm:justify-start max-sm:justify-end max-sm:items-end">
+    <div className="w-full  flex flex-wrap max-sm:flex-col sm:justify-start max-sm:justify-center max-sm:items-center">
       {data.map((project, index) => (
         <Link key={index} href={`/projects/${project.title}`} className="group">
           <Card className="w-[350px] max-sm:w-[340px] h-[150px] mr-4 mb-2 p-4 transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-lg">
