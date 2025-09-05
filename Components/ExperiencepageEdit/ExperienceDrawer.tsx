@@ -85,7 +85,7 @@ export default function ExperienceDrawer({
     setExpLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/v1/experience/add-exp",
+        "https://portfolio-be-flame.vercel.app/api/v1/experience/add-exp",
         {
           experienceName,
           experienceDescription,

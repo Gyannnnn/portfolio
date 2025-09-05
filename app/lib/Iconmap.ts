@@ -43,7 +43,7 @@ const skillData = [
   { icon: SiShadcnui, skill: "ShadCN", iconColor: "#111" }, // fix this
   { icon: BiLogoPostgresql, skill: "PostgreSQL", iconColor: "#336791" },
   { icon: SiPrisma, skill: "Prisma", iconColor: "#0c344b" },
-  { icon: FcLinux, skill: "Linux", iconColor: "" },
+  { icon: FcLinux, skill: "Linux", iconColor: "#111" },
   { icon: SiPostman, skill: "Postman", iconColor: "#ff6c37" },
   { icon: FaGithub, skill: "GitHub", iconColor: "#111" }, // fix this
   { icon: IoLogoVercel, skill: "Vercel", iconColor: "#111" }, // fix this

@@ -18,14 +18,19 @@ export default function Navbar() {
       <div className="center gap-6 max-sm:hidden">
         <div className="flex gap-2 center">
           <FaUserGraduate />
-          {""} <h1 className="text-xl font-bold">gyanpatra.dev</h1>
+           <h1 className="text-xl font-bold">gyanpatra.dev</h1>
         </div>
         <div className="center gap-2  text-sm">
-          <Link href={""}>Home</Link>
+          <Link href={"/"}>Home</Link>
           <div className="center relative w-20 ">
-            <Link className="center" href={""}>
+            <Link
+              className="flex items-center justify-center gap-2"
+              href={
+                "https://drive.google.com/file/d/1JOzAK8d2MPsR_zEpnUO-IJVooXQ85xN0/view"
+              }
+            >
               Resume
-              <FaExternalLinkAlt className="absolute top-0 right-2 text-xs" />
+              <FaExternalLinkAlt className="" />
             </Link>
           </div>
         </div>

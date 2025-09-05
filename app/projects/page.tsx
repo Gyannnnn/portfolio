@@ -3,6 +3,8 @@ import CodeComponent from "@/Components/CodeComponent";
 import Projects from "@/Components/ProjectCard";
 import axios from "axios";
 import { projectSection } from "../types/type";
+import AddProjectDrawer from "@/Components/ProjectPageEdit/AddProjectDrawer";
+import { auth } from "@/auth";
 
 const code = `const projectField = {
   idea: "Late-night code sparks in hostel room",
@@ -29,6 +31,8 @@ export default async function ProjectsPage() {
     "https://portfolio-be-flame.vercel.app/api/v1/projects/"
   );
   const data = res.data;
+  console.log(data.projectsPage.id);
+  const seesion = await auth();
 
   const projectComponentData: ProjectCardData[] =
     data.projectsPage.projects.map((prj) => ({
@@ -39,6 +43,11 @@ export default async function ProjectsPage() {
   return (
     <div className="container">
       <div className="contentContainer">
+        <AddProjectDrawer
+          token={seesion?.user.jwt_token as string}
+          id={data.projectsPage.id}
+          role={seesion?.user.role as string}
+        />
         <h1 className="heading">Projects</h1>
         <h1 className="description">{data.projectsPage.projectHeading}</h1>
         <Projects data={projectComponentData} />
