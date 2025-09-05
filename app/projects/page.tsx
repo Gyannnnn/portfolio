@@ -1,7 +1,8 @@
 import BottomNav from "@/Components/BottomNav";
 import CodeComponent from "@/Components/CodeComponent";
 import Projects from "@/Components/ProjectCard";
-import React from "react";
+import axios from "axios";
+import { projectSection } from "../types/type";
 
 const code = `const projectField = {
   idea: "Late-night code sparks in hostel room",
@@ -10,7 +11,7 @@ const code = `const projectField = {
 };
 
 console.log("Project Field:", projectField);
-`
+`;
 const links = {
   preLinkName: "About me",
   postLinkName: "Skills & Projects",
@@ -18,22 +19,35 @@ const links = {
   postLink: "/skill",
 };
 
+type ProjectCardData = {
+  title: string;
+  description: string;
+};
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const res = await axios.get<projectSection>(
+    "https://portfolio-be-flame.vercel.app/api/v1/projects/"
+  );
+  const data = res.data;
+
+  const projectComponentData: ProjectCardData[] =
+    data.projectsPage.projects.map((prj) => ({
+      title: prj.projectName,
+      description: prj.projectHeading,
+    }));
+
   return (
     <div className="container">
       <div className="contentContainer">
         <h1 className="heading">Projects</h1>
-        <h1 className="description">A lot of ideas, but some are still under construction!</h1>
-        
-          <Projects/>
-        
-        <div >
+        <h1 className="description">{data.projectsPage.projectHeading}</h1>
+        <Projects data={projectComponentData} />
+        <div>
           <h1 className="">projects.ts</h1>
-          <CodeComponent code={code}/>
+          <CodeComponent code={code} />
         </div>
         <div>
-          <BottomNav links={links}/>
+          <BottomNav links={links} />
         </div>
       </div>
     </div>
