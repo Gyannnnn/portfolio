@@ -41,8 +41,8 @@ export const metadata: Metadata = generateSEOMetadata({
     "frontend developer",
     "backend developer"
   ],
-  canonicalUrl: "https://your-portfolio-domain.com", // Replace with actual domain
-  ogImage: "/profile/profile.jpeg",
+  canonicalUrl: "https://your-portfolio-domain.com", 
+  ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",
 });
