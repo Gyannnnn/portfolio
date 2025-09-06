@@ -5,6 +5,34 @@ import axios from "axios";
 import { projectSection } from "../types/type";
 import AddProjectDrawer from "@/Components/ProjectPageEdit/AddProjectDrawer";
 import { auth } from "@/auth";
+import { generateMetadata as generateSEOMetadata } from "@/components/seo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = generateSEOMetadata({
+  title: "Projects | Gyanranjan Patra Portfolio",
+  description: "Explore the projects built by Gyanranjan Patra, a VSSUT Burla graduate. Showcasing full-stack web applications, mobile apps, and innovative solutions using modern technologies like React, Next.js, Node.js, and more.",
+  keywords: [
+    "Gyanranjan Patra projects",
+    "Gyanaranjan Patra VSSUT",
+    "VSSUT Burla projects",
+    "portfolio projects",
+    "web development projects",
+    "full-stack projects",
+    "React projects",
+    "Next.js projects",
+    "Node.js projects",
+    "TypeScript projects",
+    "JavaScript projects",
+    "MongoDB projects",
+    "PostgreSQL projects",
+    "software development",
+    "programming projects"
+  ],
+  canonicalUrl: "https://your-portfolio-domain.com/projects", // Replace with actual domain
+  ogImage: "/projects/veerpreps.png",
+  ogType: "website",
+  twitterCard: "summary_large_image",
+});
 
 const code = `const projectField = {
   idea: "Late-night code sparks in hostel room",
@@ -32,7 +60,7 @@ export default async function ProjectsPage() {
   );
   const data = res.data;
   console.log(data.projectsPage.id);
-  const seesion = await auth();
+  const session = await auth();
 
   const projectComponentData: ProjectCardData[] =
     data.projectsPage.projects.map((prj) => ({
@@ -43,11 +71,15 @@ export default async function ProjectsPage() {
   return (
     <div className="container">
       <div className="contentContainer">
-        <AddProjectDrawer
-          token={seesion?.user.jwt_token as string}
-          id={data.projectsPage.id}
-          role={seesion?.user.role as string}
-        />
+        {session?.user ? (
+          <AddProjectDrawer
+            token={session?.user.jwt_token as string}
+            id={data.projectsPage.id}
+            role={session?.user.role as string}
+          />
+        ) : (
+          ""
+        )}
         <h1 className="heading">Projects</h1>
         <h1 className="description">{data.projectsPage.projectHeading}</h1>
         <Projects data={projectComponentData} />

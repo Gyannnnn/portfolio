@@ -107,19 +107,11 @@ export default function AddFeatures({
             <Button type="submit">Add learning</Button>
           </form>
           <DrawerFooter>
-            <Button type="submit">
-              {IsLoading ? (
-                <div className="flex gap-2">
-                  <Loader className="animate-spin " /> <h1>Updating</h1>
-                </div>
-              ) : (
-                "Update Project"
-              )}
-            </Button>
-          </DrawerFooter>
-          <DrawerClose>
+            <DrawerClose>
             <Button variant="outline">Cancel</Button>
           </DrawerClose>
+          </DrawerFooter>
+          
         </DrawerContent>
         <Toaster position="top-center" />
       </Drawer>

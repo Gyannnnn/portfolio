@@ -113,10 +113,10 @@ export default function EditSkillDrawer({
   return (
     <div>
       <Drawer>
-        <DrawerTrigger>
+        <DrawerTrigger className="edit">
           <Button>
             <EditIcon />
-            Edit content
+            <h1 className="sm:block hidden">Edit content</h1>
           </Button>
         </DrawerTrigger>
         <DrawerContent className="flex flex-col items-center">

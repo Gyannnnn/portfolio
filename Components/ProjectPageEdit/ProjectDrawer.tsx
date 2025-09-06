@@ -96,6 +96,7 @@ export default function ProjectDrawer({
             <div className="flex flex-col gap-2">
               <Label>Project Name</Label>
               <Input
+              required
                 name="projectName"
                 placeholder="Enter Project Name"
               ></Input>

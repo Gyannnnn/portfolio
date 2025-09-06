@@ -216,10 +216,47 @@ body {
     @apply sm:text-lg text-lg;
   }
   .contentContainer {
-    @apply flex flex-col gap-6;
+    @apply flex flex-col gap-8;
   }
   .statsCount {
     @apply text-6xl font-bold pb-2;
+  }
+  
+  /* Enhanced stats page styling */
+  .stats-card {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+  }
+  
+  .stats-icon-container {
+    @apply p-3 rounded-xl transition-all duration-300;
+  }
+  
+  .stats-number {
+    @apply text-7xl font-bold mb-2 transition-all duration-300;
+  }
+  
+  .stats-description {
+    @apply text-sm text-muted-foreground max-w-xs mx-auto;
+  }
+  
+  /* Signin page enhancements */
+  .signin-form-container {
+    @apply bg-muted/30 rounded-2xl p-8 border hover:shadow-lg transition-all duration-300;
+  }
+  
+  .profile-card {
+    @apply shadow-lg border-2 hover:shadow-xl transition-all duration-300;
+  }
+  
+  .profile-avatar {
+    @apply ring-4 ring-primary/20 hover:ring-primary/40 transition-all duration-300;
+  }
+  
+  .status-indicator {
+    @apply absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-background;
+  }
+  .edit{
+    @apply absolute top-24 sm:right-10 right-2 
   }
 }
 

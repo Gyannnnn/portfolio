@@ -5,7 +5,31 @@ import axios from "axios";
 import { educationSection } from "../types/type";
 import EducationDrawer from "@/Components/EducationPageEdit/EducationDrwer";
 import { auth } from "@/auth";
+import { generateMetadata as generateSEOMetadata } from "@/components/seo";
+import { Metadata } from "next";
 
+export const metadata: Metadata = generateSEOMetadata({
+  title: "Education | Gyanranjan Patra VSSUT Burla",
+  description: "Educational background of Gyanranjan Patra, a VSSUT Burla graduate with Bachelor of Engineering in Information Technology. Discover academic achievements, courses, and educational journey.",
+  keywords: [
+    "Gyanranjan Patra education",
+    "Gyanaranjan Patra VSSUT",
+    "VSSUT Burla education",
+    "VSSUT Burla graduate",
+    "Information Technology",
+    "Bachelor of Engineering",
+    "VSSUT Burla IT",
+    "computer science education",
+    "engineering education",
+    "technical education",
+    "programming education",
+    "software engineering education"
+  ],
+  canonicalUrl: "https://your-portfolio-domain.com/education", // Replace with actual domain
+  ogImage: "/profile/profile.jpeg",
+  ogType: "website",
+  twitterCard: "summary_large_image",
+});
 
 const code = `
 const educationJourney = {
@@ -52,14 +76,18 @@ export default async function EducationPage() {
   return (
     <div className="container">
       <div className="contentContainer">
-        <EducationDrawer
-          eduDrawerDataProps={{
-            role: role as string,
-            token: token as string,
-            portfolioId: data.educationSection.portfolioId,
-            educationSectionId: data.educationSection.id,
-          }}
-        />
+        {session?.user ? (
+          <EducationDrawer
+            eduDrawerDataProps={{
+              role: role as string,
+              token: token as string,
+              portfolioId: data.educationSection.portfolioId,
+              educationSectionId: data.educationSection.id,
+            }}
+          />
+        ) : (
+          ""
+        )}
         <h1 className="heading">Education</h1>
         <h1 className="description">
           {data.educationSection.educationHeading}

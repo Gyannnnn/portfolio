@@ -18,7 +18,7 @@ export default function Navbar() {
       <div className="center gap-6 max-sm:hidden">
         <div className="flex gap-2 center">
           <FaUserGraduate />
-           <h1 className="text-xl font-bold">gyanpatra.dev</h1>
+          <h1 className="text-xl font-bold">gyanpatra.dev</h1>
         </div>
         <div className="center gap-2  text-sm">
           <Link href={"/"}>Home</Link>
