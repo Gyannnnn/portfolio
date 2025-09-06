@@ -22,7 +22,7 @@ export const metadata: Metadata = generateSEOMetadata({
     "programming services",
     "web development services"
   ],
-  canonicalUrl: "https://your-portfolio-domain.com/contact", 
+  canonicalUrl: "https://gyanpatra.dev.iitkirba.xyz/contact", 
   ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",

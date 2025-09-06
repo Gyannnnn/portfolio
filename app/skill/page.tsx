@@ -28,7 +28,7 @@ export const metadata: Metadata = generateSEOMetadata({
     "backend skills",
     "software development skills"
   ],
-  canonicalUrl: "https://your-portfolio-domain.com/skill", // Replace with actual domain
+  canonicalUrl: "https://gyanpatra.dev.iitkirba.xyz/skill",
   ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",

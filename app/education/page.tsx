@@ -25,7 +25,7 @@ export const metadata: Metadata = generateSEOMetadata({
     "programming education",
     "software engineering education"
   ],
-  canonicalUrl: "https://your-portfolio-domain.com/education", // Replace with actual domain
+  canonicalUrl: "https://gyanpatra.dev.iitkirba.xyz/education", 
   ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",
