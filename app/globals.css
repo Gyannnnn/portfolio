@@ -216,10 +216,27 @@ body {
     @apply sm:text-lg text-lg;
   }
   .contentContainer {
-    @apply flex flex-col gap-6;
+    @apply flex flex-col gap-8;
   }
   .statsCount {
     @apply text-6xl font-bold pb-2;
+  }
+  
+  /* Enhanced stats page styling */
+  .stats-card {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+  }
+  
+  .stats-icon-container {
+    @apply p-3 rounded-xl transition-all duration-300;
+  }
+  
+  .stats-number {
+    @apply text-7xl font-bold mb-2 transition-all duration-300;
+  }
+  
+  .stats-description {
+    @apply text-sm text-muted-foreground max-w-xs mx-auto;
   }
   .edit{
     @apply absolute top-24 sm:right-10 right-2 

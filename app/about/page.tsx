@@ -3,6 +3,34 @@ import CodeComponent from "@/Components/CodeComponent";
 import React from "react";
 import { getAbout } from "../actions/getAboutPage";
 import EditAbout from "@/Components/AboutpageEdit/EditAbout";
+import { generateMetadata as generateSEOMetadata } from "@/components/seo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = generateSEOMetadata({
+  title: "About Gyanranjan Patra | VSSUT Burla Developer",
+  description: "Learn about Gyanranjan Patra, a passionate full-stack developer and VSSUT Burla graduate. Discover my journey, skills, and passion for creating innovative web solutions.",
+  keywords: [
+    "About Gyanranjan Patra",
+    "Gyanaranjan Patra VSSUT",
+    "VSSUT Burla developer",
+    "full-stack developer",
+    "software engineer",
+    "web developer",
+    "React developer",
+    "Next.js developer",
+    "Node.js developer",
+    "TypeScript",
+    "JavaScript",
+    "MongoDB",
+    "PostgreSQL",
+    "developer story",
+    "programming journey"
+  ],
+  canonicalUrl: "https://your-portfolio-domain.com/about", // Replace with actual domain
+  ogImage: "/profile/profile.jpeg",
+  ogType: "profile",
+  twitterCard: "summary_large_image",
+});
 
 const code = `const superpower = () => {
   return "Crafting full-stack solutions with MERN, delivering clean UI, efficient APIs, and developer-friendly tools!";

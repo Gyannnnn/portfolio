@@ -3,8 +3,36 @@ import SkillPage from "@/Components/SkillPage";
 import EditSkill from "@/Components/SkillPageEdit/EditSkill";
 import axios from "axios";
 import { SkillSection } from "../types/type";
+import { generateMetadata as generateSEOMetadata } from "@/components/seo";
+import { Metadata } from "next";
 
-
+export const metadata: Metadata = generateSEOMetadata({
+  title: "Skills & Technologies | Gyanranjan Patra",
+  description: "Discover the technical skills and technologies mastered by Gyanranjan Patra, a VSSUT Burla graduate. Expertise in React, Next.js, Node.js, TypeScript, MongoDB, PostgreSQL, and modern web development tools.",
+  keywords: [
+    "Gyanranjan Patra skills",
+    "Gyanaranjan Patra VSSUT",
+    "VSSUT Burla skills",
+    "technical skills",
+    "programming skills",
+    "web development skills",
+    "React skills",
+    "Next.js skills",
+    "Node.js skills",
+    "TypeScript skills",
+    "JavaScript skills",
+    "MongoDB skills",
+    "PostgreSQL skills",
+    "full-stack skills",
+    "frontend skills",
+    "backend skills",
+    "software development skills"
+  ],
+  canonicalUrl: "https://your-portfolio-domain.com/skill", // Replace with actual domain
+  ogImage: "/profile/profile.jpeg",
+  ogType: "website",
+  twitterCard: "summary_large_image",
+});
 
 interface skillPageResposne {
   skillSection: SkillSection;

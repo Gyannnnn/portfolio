@@ -1,5 +1,31 @@
 import ContactFormTab from "@/Components/ContactFormTab";
 import React from "react";
+import { generateMetadata as generateSEOMetadata } from "@/components/seo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = generateSEOMetadata({
+  title: "Contact | Gyanranjan Patra Portfolio",
+  description: "Get in touch with Gyanranjan Patra, a VSSUT Burla graduate and full-stack developer. Available for freelance projects, job opportunities, and collaboration. Contact via email or social media.",
+  keywords: [
+    "Contact Gyanranjan Patra",
+    "Gyanaranjan Patra VSSUT",
+    "VSSUT Burla contact",
+    "hire developer",
+    "freelance developer",
+    "web developer contact",
+    "full-stack developer contact",
+    "React developer contact",
+    "Next.js developer contact",
+    "Node.js developer contact",
+    "software developer contact",
+    "programming services",
+    "web development services"
+  ],
+  canonicalUrl: "https://your-portfolio-domain.com/contact", // Replace with actual domain
+  ogImage: "/profile/profile.jpeg",
+  ogType: "website",
+  twitterCard: "summary_large_image",
+});
 
 export default function ContactPage() {
   return (

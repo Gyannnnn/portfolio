@@ -8,6 +8,49 @@ import { ProjectDetailsResponse } from "@/app/types/type";
 import ProjectDrawer from "@/Components/ProjectPageEdit/ProjectDrawer";
 import { auth } from "@/auth";
 import AddFeatures from "@/Components/ProjectPageEdit/AddFeatures";
+import { generateMetadata as generateSEOMetadata, generateProjectStructuredData } from "@/components/seo";
+import StructuredData from "@/components/seo/StructuredData";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ title: string }>;
+}): Promise<Metadata> {
+  const title = await (await params).title;
+  const projectName = decodeURI(title);
+  
+  try {
+    const res = await axios.get<ProjectDetailsResponse>(
+      `https://portfolio-be-flame.vercel.app/api/v1/projects/project/${projectName}`
+    );
+    const projectData = res.data.results;
+    
+    return generateSEOMetadata({
+      title: `${projectData.projectName} | Gyanranjan Patra Portfolio`,
+      description: `${projectData.projectDescription.substring(0, 150)}... Built with ${projectData.techStack.join(', ')} by Gyanranjan Patra, VSSUT Burla graduate.`,
+      keywords: [
+        projectData.projectName,
+        ...projectData.techStack,
+        "Gyanranjan Patra",
+        "VSSUT Burla",
+        "portfolio project",
+        "web development",
+        "full-stack development"
+      ],
+      canonicalUrl: `https://your-portfolio-domain.com/projects/${title}`, // Replace with actual domain
+      ogImage: "/projects/veerpreps.png", // You can make this dynamic based on project
+      ogType: "article",
+      twitterCard: "summary_large_image",
+    });
+  } catch {
+    return generateSEOMetadata({
+      title: `${projectName} | Gyanranjan Patra Portfolio`,
+      description: `Project ${projectName} by Gyanranjan Patra, VSSUT Burla graduate.`,
+      keywords: [projectName, "Gyanranjan Patra", "VSSUT Burla", "portfolio project"],
+    });
+  }
+}
 
 export default async function ProjectDetails({
   params,
@@ -26,6 +69,16 @@ export default async function ProjectDetails({
 
   return (
     <div className="container">
+      <StructuredData 
+        data={generateProjectStructuredData({
+          name: projectData.projectName,
+          description: projectData.projectDescription,
+          url: projectData.deployedLink,
+          technologies: projectData.techStack,
+          githubUrl: projectData.githubLink,
+          imageUrl: "/projects/veerpreps.png", // You can make this dynamic
+        })}
+      />
       <div className="contentContainer justify-start">
         {session?.user ? (
           <ProjectDrawer
