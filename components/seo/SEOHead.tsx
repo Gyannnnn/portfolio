@@ -44,7 +44,7 @@ export function generateMetadata(seoProps: SEOHeadProps = {}): Metadata {
   const description = seo.description || defaultSEO.description;
   const keywords = seo.keywords || defaultSEO.keywords;
   const canonicalUrl = seo.canonicalUrl;
-  const ogImage = seo.ogImage || '/profile/profile.jpeg';
+  const ogImage = seo.ogImage || '/profile/og.png';
   const ogType = seo.ogType || 'website';
   const twitterCard = seo.twitterCard || 'summary_large_image';
 

@@ -27,7 +27,7 @@ export const metadata: Metadata = generateSEOMetadata({
     "code statistics"
   ],
   canonicalUrl: "https://your-portfolio-domain.com/stats", // Replace with actual domain
-  ogImage: "/profile/profile.jpeg",
+  ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",
 });

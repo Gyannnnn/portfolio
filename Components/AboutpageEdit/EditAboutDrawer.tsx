@@ -78,7 +78,7 @@ export default function EditAboutPage({
             <DrawerTitle>Edit About Page Contents</DrawerTitle>
             <DrawerDescription>This action cannot be undone.</DrawerDescription>
           </DrawerHeader>
-          <form onSubmit={handleSubmit} className="w-1/2 flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="drawer">
             <div className="flex flex-col gap-2">
               <Label>About Heading</Label>
               <Input
@@ -101,7 +101,7 @@ export default function EditAboutPage({
                 )}
               </Button>
               <DrawerClose>
-                <Button variant="outline">Cancel</Button>
+                <Button type="button" variant="outline">Cancel</Button>
               </DrawerClose>
             </DrawerFooter>
           </form>

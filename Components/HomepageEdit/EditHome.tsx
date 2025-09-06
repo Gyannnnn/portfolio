@@ -95,7 +95,7 @@ export default function EditHome({
             <DrawerTitle>Edit Home page contents</DrawerTitle>
             <DrawerDescription>This action cannot be undone.</DrawerDescription>
           </DrawerHeader>
-          <form onSubmit={handleSubmit} className="sm:w-1/2 flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="drawer">
             <div className="flex flex-col gap-2">
               <Label>Heading</Label>
               <Input name="heading" placeholder="Enter New Heading"></Input>
@@ -131,7 +131,7 @@ export default function EditHome({
                 )}
               </Button>
               <DrawerClose>
-                <Button variant="outline">Cancel</Button>
+                <Button type="button" variant="outline">Cancel</Button>
               </DrawerClose>
             </DrawerFooter>
           </form>

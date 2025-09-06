@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { FaRegHeart } from "react-icons/fa";
-import { toast,Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 export default function LikeButton() {
   const [liked, setLiked] = useState(false);
@@ -18,7 +18,6 @@ export default function LikeButton() {
 
   const handleLike = async () => {
     if (liked) {
-
       toast.error("You already liked");
       return;
     }
@@ -49,7 +48,7 @@ export default function LikeButton() {
       >
         <FaRegHeart /> Love this portfolio
       </Button>
-      <Toaster/>
+      <Toaster />
     </div>
   );
 }

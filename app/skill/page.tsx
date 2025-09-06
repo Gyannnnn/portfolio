@@ -29,7 +29,7 @@ export const metadata: Metadata = generateSEOMetadata({
     "software development skills"
   ],
   canonicalUrl: "https://your-portfolio-domain.com/skill", // Replace with actual domain
-  ogImage: "/profile/profile.jpeg",
+  ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",
 });

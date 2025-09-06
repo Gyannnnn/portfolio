@@ -21,8 +21,8 @@ export const metadata: Metadata = generateSEOMetadata({
     "programming services",
     "web development services"
   ],
-  canonicalUrl: "https://your-portfolio-domain.com/contact", // Replace with actual domain
-  ogImage: "/profile/profile.jpeg",
+  canonicalUrl: "https://your-portfolio-domain.com/contact", 
+  ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",
 });
@@ -35,7 +35,7 @@ export default function ContactPage() {
         <h1 className="description">
           Get in touch before I hit `npm start` again!
         </h1>
-        <div className="w-full flex items-start">
+        <div className="w-full flex items-center max-sm:justify-center">
           <ContactFormTab/>
         </div>
       </div>

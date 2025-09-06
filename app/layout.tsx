@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = generateSEOMetadata({
   title: "Gyanranjan Patra | VSSUT Burla Developer Portfolio",
   description: "Portfolio of Gyanranjan Patra, a skilled developer and VSSUT Burla graduate. Showcasing full-stack development projects, skills, and experience in React, Next.js, Node.js, and modern web technologies.",
-  keywords: [
+  keywords: [ 
     "Gyanranjan Patra",
     "Gyanaranjan Patra VSSUT",
     "VSSUT Burla",

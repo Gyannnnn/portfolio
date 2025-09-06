@@ -103,7 +103,7 @@ export default function AddProjectDrawer({
           </DrawerHeader>
           <form
             onSubmit={handleSubmit}
-            className="w-full md:w-1/2 flex flex-col gap-4"
+            className="drawer"
           >
             <div className="flex flex-col gap-2">
               <Label>Project Name</Label>
