@@ -8,6 +8,7 @@ import { ReactLenis } from "@/lib/Lenis/Lenis";
 import { ThemeProvider } from "@/components/theme-provider";
 import { generateMetadata as generateSEOMetadata, generatePersonStructuredData } from "@/components/seo";
 import StructuredData from "@/components/seo/StructuredData";
+import MusicPlayer from "@/Components/Music";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: "Gyanranjan Patra | VSSUT Burla Developer Portfolio",
+  title: "Gyanranjan Patra | Developer Portfolio",
   description: "Portfolio of Gyanranjan Patra, a skilled developer and VSSUT Burla graduate. Showcasing full-stack development projects, skills, and experience in React, Next.js, Node.js, and modern web technologies.",
   keywords: [ 
     "Gyanranjan Patra",
@@ -41,7 +42,7 @@ export const metadata: Metadata = generateSEOMetadata({
     "frontend developer",
     "backend developer"
   ],
-  canonicalUrl: "https://your-portfolio-domain.com", 
+  canonicalUrl: "https://gyanpatra.dev.iitkirba.xyz", 
   ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",
@@ -68,6 +69,7 @@ export default function RootLayout({
                 <Sidebar />
                 {children}
               </main>
+              <MusicPlayer musicUrl="/profile/Insecurities.mp3"/> 
               <Footer />
             </ThemeProvider>
         

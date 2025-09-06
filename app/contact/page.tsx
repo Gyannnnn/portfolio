@@ -2,6 +2,7 @@ import ContactFormTab from "@/Components/ContactFormTab";
 import React from "react";
 import { generateMetadata as generateSEOMetadata } from "@/components/seo";
 import { Metadata } from "next";
+import BottomNav from "@/Components/BottomNav";
 
 export const metadata: Metadata = generateSEOMetadata({
   title: "Contact | Gyanranjan Patra Portfolio",
@@ -21,11 +22,18 @@ export const metadata: Metadata = generateSEOMetadata({
     "programming services",
     "web development services"
   ],
-  canonicalUrl: "https://your-portfolio-domain.com/contact", 
+  canonicalUrl: "https://gyanpatra.dev.iitkirba.xyz/contact", 
   ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",
 });
+
+const links = {
+  preLinkName: "Education",
+  postLinkName: "Stats",
+  preLink: "/education",
+  postLink: "/stats",
+};
 
 export default function ContactPage() {
   return (
@@ -38,6 +46,7 @@ export default function ContactPage() {
         <div className="w-full flex items-center max-sm:justify-center">
           <ContactFormTab/>
         </div>
+        <BottomNav links={links}/>
       </div>
     </div>
   );

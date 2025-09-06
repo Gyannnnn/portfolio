@@ -17,8 +17,9 @@ import {
 import StructuredData from "@/components/seo/StructuredData";
 import { Metadata } from "next";
 
+
 export const metadata: Metadata = generateSEOMetadata({
-  title: "Gyanranjan Patra | VSSUT Burla Developer Portfolio",
+  title: "Gyanranjan Patra |  Developer Portfolio",
   description:
     "Welcome to Gyanranjan Patra's portfolio. A skilled full-stack developer and VSSUT Burla graduate specializing in React, Next.js, Node.js, and modern web technologies. Explore my projects, skills, and experience.",
   keywords: [
@@ -42,7 +43,7 @@ export const metadata: Metadata = generateSEOMetadata({
     "VSSUT Burla graduate",
     "software development portfolio",
   ],
-  canonicalUrl: "https://your-portfolio-domain.com", // Replace with actual domain
+  canonicalUrl: "https://gyanpatra.dev.iitkirba.xyz/",
   ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",
@@ -109,6 +110,7 @@ export default async function page() {
           </div>
 
           <BottomNav links={links} />
+          
         </div>
       </div>
     );
