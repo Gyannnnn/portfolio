@@ -17,6 +17,7 @@ import {
 import StructuredData from "@/components/seo/StructuredData";
 import { Metadata } from "next";
 
+
 export const metadata: Metadata = generateSEOMetadata({
   title: "Gyanranjan Patra | VSSUT Burla Developer Portfolio",
   description:
@@ -109,6 +110,7 @@ export default async function page() {
           </div>
 
           <BottomNav links={links} />
+          
         </div>
       </div>
     );

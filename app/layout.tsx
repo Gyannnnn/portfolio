@@ -8,6 +8,7 @@ import { ReactLenis } from "@/lib/Lenis/Lenis";
 import { ThemeProvider } from "@/components/theme-provider";
 import { generateMetadata as generateSEOMetadata, generatePersonStructuredData } from "@/components/seo";
 import StructuredData from "@/components/seo/StructuredData";
+import MusicPlayer from "@/Components/Music";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,6 +69,7 @@ export default function RootLayout({
                 <Sidebar />
                 {children}
               </main>
+              <MusicPlayer musicUrl="/profile/Insecurities.mp3"/> 
               <Footer />
             </ThemeProvider>
         
