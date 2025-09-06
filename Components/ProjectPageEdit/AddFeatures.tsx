@@ -17,9 +17,8 @@ import { Textarea } from "@/components/ui/textarea";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 
-export default function ProjectDrawer({
+export default function AddFeatures({
   token,
   role,
   id,
@@ -29,7 +28,6 @@ export default function ProjectDrawer({
   id: string;
 }) {
   const [IsLoading, setLoading] = useState(false);
-  const router = useRouter()
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -43,11 +41,7 @@ export default function ProjectDrawer({
     const projectDescription = formData.get("projectDescription");
     const githubLink = formData.get("githubLink");
     const deployedLink = formData.get("deployedLink");
-    console.log(id,
-          projectName,
-          projectDescription,
-          githubLink,
-          deployedLink)
+    console.log(id, projectName, projectDescription, githubLink, deployedLink);
     const loadingId = toast.loading("Updating");
     setLoading(true);
     try {
@@ -69,7 +63,6 @@ export default function ProjectDrawer({
       console.log(res);
       toast.remove(loadingId);
       toast.success("Updated Successfully");
-      router.push("/projects")
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -84,58 +77,49 @@ export default function ProjectDrawer({
         <DrawerTrigger>
           <Button>
             <EditIcon />
-            Edit content
+            Edit Feature
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="flex flex-col items-center">
+        <DrawerContent className="flex flex-col gap-4 items-center">
           <DrawerHeader>
             <DrawerTitle>Edit Projects details</DrawerTitle>
             <DrawerDescription>This action cannot be undone.</DrawerDescription>
           </DrawerHeader>
           <form onSubmit={handleSubmit} className="w-1/2 flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <Label>Project Name</Label>
-              <Input
-                name="projectName"
-                placeholder="Enter Project Name"
-              ></Input>
+              <Label>Add fetaure</Label>
+              <Input name="feature" placeholder="Enter feature"></Input>
             </div>
+            <Button type="submit">Add feature</Button>
+          </form>
+          <form onSubmit={handleSubmit} className="w-1/2 flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <Label>Project Description</Label>
-              <Textarea
-                name="projectDescription"
-                placeholder="Enter new Description"
-              />
+              <Label>Add challenge</Label>
+              <Input name="challenge" placeholder="Enter feature"></Input>
             </div>
+            <Button type="submit">Add challenge</Button>
+          </form>
+          <form onSubmit={handleSubmit} className="w-1/2 flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <Label>Github Link</Label>
-              <Input
-                name="githubLink"
-                placeholder="Enter New Github Link"
-              ></Input>
+              <Label>Add learning</Label>
+              <Input name="learning" placeholder="Enter learning"></Input>
             </div>
-            <div className="flex flex-col gap-2">
-              <Label>Deployed Link</Label>
-              <Input
-                name="deployedLink"
-                placeholder="Enter New Deployed Link"
-              ></Input>
-            </div>
-            <DrawerFooter>
-              <Button type="submit">
-                {IsLoading ? (
-                  <div className="flex gap-2">
-                    <Loader className="animate-spin " /> <h1>Updating</h1>
-                  </div>
-                ) : (
-                  "Update Project"
-                )}
-              </Button>
-              <DrawerClose className="w-full">
-                <Button type="button" variant="outline" className="w-full mt-2">Cancel</Button>
-              </DrawerClose>
-            </DrawerFooter>
-          </form>          
+            <Button type="submit">Add learning</Button>
+          </form>
+          <DrawerFooter>
+            <Button type="submit">
+              {IsLoading ? (
+                <div className="flex gap-2">
+                  <Loader className="animate-spin " /> <h1>Updating</h1>
+                </div>
+              ) : (
+                "Update Project"
+              )}
+            </Button>
+          </DrawerFooter>
+          <DrawerClose>
+            <Button variant="outline">Cancel</Button>
+          </DrawerClose>
         </DrawerContent>
         <Toaster position="top-center" />
       </Drawer>

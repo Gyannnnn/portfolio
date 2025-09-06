@@ -125,11 +125,7 @@ export default function Commandinput() {
           <Link href="https://github.com/gyannnnn" target="_blank">
             <FaGithub />
           </Link>
-          <ThemeToggler />
-          <MenuIcon
-            onClick={() => setOpen((open) => !open)}
-            className="sm:hidden"
-          />
+          <ThemeToggler />          
         </div>
       </div>
       <CommandDialog

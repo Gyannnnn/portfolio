@@ -43,7 +43,7 @@ export default function EditSkillDrawer({
     const skillDescription = formData.get("skillDescription");
 
     const loadingId = toast.loading("Editing");
-    setSkillLoading(true);
+    setLoading(true);
     try {
       const res = await axios.put(
         "https://portfolio-be-flame.vercel.app/api/v1/skillsection/update",
@@ -61,9 +61,10 @@ export default function EditSkillDrawer({
       console.log(res);
       toast.remove(loadingId);
       toast.success("Updated Successfully");
-      setSkillLoading(false);
+      setLoading(false);
+      e.currentTarget.reset();
     } catch (error) {
-      setSkillLoading(false);
+      setLoading(false);
       toast.remove(loadingId);
       toast.error("Failed to update");
     }
@@ -82,7 +83,7 @@ export default function EditSkillDrawer({
     const skillIconColor = formData.get("skillIconColor");
 
     const loadingId = toast.loading("Adding new skill");
-    setLoading(true);
+    setSkillLoading(true);
     try {
       const res = await axios.post(
         "https://portfolio-be-flame.vercel.app/api/v1/skillsection/add-skill",
@@ -101,9 +102,9 @@ export default function EditSkillDrawer({
       console.log(res);
       toast.remove(loadingId);
       toast.success("Skill added successfully ");
-      setLoading(false);
+      setSkillLoading(false);
     } catch (error) {
-      setLoading(false);
+      setSkillLoading(false);
       toast.remove(loadingId);
       toast.error("Failed to Add new skill");
     }

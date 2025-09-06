@@ -7,7 +7,7 @@ import axios from "axios";
 import { ProjectDetailsResponse } from "@/app/types/type";
 import ProjectDrawer from "@/Components/ProjectPageEdit/ProjectDrawer";
 import { auth } from "@/auth";
-
+import AddFeatures from "@/Components/ProjectPageEdit/AddFeatures";
 
 export default async function ProjectDetails({
   params,
@@ -16,7 +16,7 @@ export default async function ProjectDetails({
 }) {
   const title = await (await params).title;
   const projectName = decodeURI(title);
-  const session = await auth()
+  const session = await auth();
   const res = await axios.get<ProjectDetailsResponse>(
     `https://portfolio-be-flame.vercel.app/api/v1/projects/project/${projectName}`
   );
@@ -27,9 +27,15 @@ export default async function ProjectDetails({
   return (
     <div className="container">
       <div className="contentContainer justify-start">
-       {
-          session?.user?( <ProjectDrawer token={session.user.jwt_token as string} role={session.user.role}  id={data.results.id} />):""
-       }
+        {session?.user ? (
+          <ProjectDrawer
+            token={session.user.jwt_token as string}
+            role={session.user.role}
+            id={data.results.id}
+          />
+        ) : (
+          ""
+        )}
         <div className="w-full flex justify-start">
           <Link
             href="/projects"
@@ -50,6 +56,7 @@ export default async function ProjectDetails({
             </Button>
           ))}
         </div>
+        <AddFeatures token="" role="" id="" />
         <div className="w-full flex max-sm:flex-col max-sm:gap-4 flex-wrap ">
           <div className="w-1/2 flex flex-col justify-start max-sm:w-full">
             <h1 className="text-lg font-bold">Features</h1>
@@ -70,7 +77,9 @@ export default async function ProjectDetails({
         </div>
         <div className="w-full flex  max-sm:flex-col max-sm:gap-4 ">
           <div className="w-1/2 flex flex-col justify-start max-sm:w-full">
-            <h1 className="text-lg font-bold">Features</h1>
+            <div>
+              <h1 className="text-lg font-bold">Features</h1>
+            </div>
             <ul className="list-disc pl-4">
               {projectData.learnings.map((learning, index) => (
                 <li key={index}>{learning}</li>

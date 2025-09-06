@@ -89,10 +89,10 @@ export default async function StatsPage() {
         <h1 className="text-lg">
           Insights and metrics about my GitHub profile
         </h1>
-        <div>
+        <div className="sm:pl-28">
           <GithubGraph />
         </div>
-        <div className="flex flex-wrap sm:justify-start items-center ">
+        <div className="flex flex-wrap sm:justify-center items-center ">
           {githubData.map((data, index) => (
             <Card
               key={index}

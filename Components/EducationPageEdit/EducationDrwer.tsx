@@ -85,7 +85,7 @@ export default function EducationDrawer({
     setEducationLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/v1/education/add-education",
+        "https://portfolio-be-flame.vercel.app/api/v1/education/add-education",
         {
           educationName,
           educationDescription,

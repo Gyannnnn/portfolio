@@ -5,8 +5,8 @@ export default function Footer() {
   return (
     <footer className="min-h-[96px] py-6 w-full 
       bg-background 
-      backdrop-blur-md border-t border-solid
-      border-gray-200/50 dark:border-gray-700/50
+      backdrop-blur-md border-t border-dotted
+      border-gray dark:border-gray-700/50
       text-gray-600 dark:text-gray-400
       shadow-sm dark:shadow-gray-900/20
       transition-all duration-300 ease-in-out">
