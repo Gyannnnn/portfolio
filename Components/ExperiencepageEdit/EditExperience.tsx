@@ -19,7 +19,7 @@ export default async function EditExperience({
   
     if (user) {
       return (
-        <div className="absolute top-28 right-16">
+        <div>
           <ExperienceDrawer
             expDrawerDataProps={{
               token: token as string,

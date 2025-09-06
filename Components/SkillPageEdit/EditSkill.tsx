@@ -17,19 +17,22 @@ export default async function EditSkill({
     const user = session?.user;
     const token = session?.user.jwt_token;
     const role = user?.role;
- 
 
     if (user) {
       return (
-        <div className="absolute sm:top-28 sm:right-16 right-2 top-20">
-          <EditSkillDrawer
-            skillSectionProps={{
-              role: role as string,
-              token: token as string,
-              portfolioId: skillPageData.portfolioId,
-              skillSectionId:skillPageData.id
-            }}
-          />
+        <div className="">
+          {session.user ? (
+            <EditSkillDrawer
+              skillSectionProps={{
+                role: role as string,
+                token: token as string,
+                portfolioId: skillPageData.portfolioId,
+                skillSectionId: skillPageData.id,
+              }}
+            />
+          ) : (
+            ""
+          )}
         </div>
       );
     }

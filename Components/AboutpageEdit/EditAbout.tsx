@@ -12,7 +12,7 @@ export default async function EditAbout() {
       console.log(role);
       if (user) {
         return (
-          <div className="absolute top-28 right-16">
+          <div>
             <EditAboutPage
               role={role as string}
               token={token as string}

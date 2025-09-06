@@ -32,7 +32,7 @@ export default async function ProjectsPage() {
   );
   const data = res.data;
   console.log(data.projectsPage.id);
-  const seesion = await auth();
+  const session = await auth();
 
   const projectComponentData: ProjectCardData[] =
     data.projectsPage.projects.map((prj) => ({
@@ -43,11 +43,15 @@ export default async function ProjectsPage() {
   return (
     <div className="container">
       <div className="contentContainer">
-        <AddProjectDrawer
-          token={seesion?.user.jwt_token as string}
-          id={data.projectsPage.id}
-          role={seesion?.user.role as string}
-        />
+        {session?.user ? (
+          <AddProjectDrawer
+            token={session?.user.jwt_token as string}
+            id={data.projectsPage.id}
+            role={session?.user.role as string}
+          />
+        ) : (
+          ""
+        )}
         <h1 className="heading">Projects</h1>
         <h1 className="description">{data.projectsPage.projectHeading}</h1>
         <Projects data={projectComponentData} />

@@ -10,6 +10,7 @@ import { MdEmail } from "react-icons/md";
 import { getIntro } from "./actions/getIntroduction";
 import Link from "next/link";
 import EditContent from "@/Components/HomepageEdit/EditHomePage";
+import { auth } from "@/auth";
 
 
 const code = `// app/api/welcome/route.js
@@ -40,13 +41,16 @@ const links = {
 
 export default async function page() {
   const data = await getIntro();  
-  
+  const session = await auth()
   const introPageData = data.data.introduction;
   if (data.statusText === "OK") {
     return (
       <div className="container ">
+        {
+            session?.user?<EditContent/>:""
+          }
         <div className="contentContainer">
-          <EditContent/>
+          
           <h1 className="heading">{introPageData.userName}</h1>
           <h1 className="text-3xl font-bold dark:text-gray-400 text-gray-500">
             {introPageData.userHeading}

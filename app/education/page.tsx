@@ -6,7 +6,6 @@ import { educationSection } from "../types/type";
 import EducationDrawer from "@/Components/EducationPageEdit/EducationDrwer";
 import { auth } from "@/auth";
 
-
 const code = `
 const educationJourney = {
   degree: "Bachelor of Engineering in Information Technology",
@@ -52,14 +51,18 @@ export default async function EducationPage() {
   return (
     <div className="container">
       <div className="contentContainer">
-        <EducationDrawer
-          eduDrawerDataProps={{
-            role: role as string,
-            token: token as string,
-            portfolioId: data.educationSection.portfolioId,
-            educationSectionId: data.educationSection.id,
-          }}
-        />
+        {session?.user ? (
+          <EducationDrawer
+            eduDrawerDataProps={{
+              role: role as string,
+              token: token as string,
+              portfolioId: data.educationSection.portfolioId,
+              educationSectionId: data.educationSection.id,
+            }}
+          />
+        ) : (
+          ""
+        )}
         <h1 className="heading">Education</h1>
         <h1 className="description">
           {data.educationSection.educationHeading}

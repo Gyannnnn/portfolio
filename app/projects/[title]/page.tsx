@@ -39,7 +39,7 @@ export default async function ProjectDetails({
         <div className="w-full flex justify-start">
           <Link
             href="/projects"
-            className="center gap-2 hover:bg-muted px-2 py-1 rounded-xl text-gray-300"
+            className="center gap-2 hover:bg-muted px-2 py-1 rounded-xl text-gray-800 dark:text-gray-300"
           >
             {" "}
             <FaArrowLeft />
@@ -47,16 +47,19 @@ export default async function ProjectDetails({
           </Link>
         </div>
         <h1 className="heading">{projectName}</h1>
-        <h1 className="description">{projectData.projectDescription}</h1>
+        <h1 className="description">{data.results.projectHeading}</h1>
+        <h1 className="content text-wrap">{projectData.projectDescription}</h1>
         <h1 className="text-lg font-bold">Tech Stack</h1>
         <div className="flex flex-wrap gap-2">
           {projectData.techStack.map((tech, index) => (
-            <Button variant="ghost" key={index}>
+            <Button variant="outline" key={index}>
               {tech}
             </Button>
           ))}
         </div>
-        <AddFeatures token="" role="" id="" />
+        {
+          session?.user?<AddFeatures token="" role="" id="" />:""
+        }
         <div className="w-full flex max-sm:flex-col max-sm:gap-4 flex-wrap ">
           <div className="w-1/2 flex flex-col justify-start max-sm:w-full">
             <h1 className="text-lg font-bold">Features</h1>
@@ -103,17 +106,17 @@ export default async function ProjectDetails({
         <div className="center gap-2 justify-start">
           <Link target="_blank" href={projectData.deployedLink}>
             <Button
-              className="bg-purple-500 text-white hover:bg-purple-500 relative w-20"
+              className="bg-purple-500 text-white hover:bg-purple-500  w-20 flex items-center justify-center gap-2 hover:cursor-pointer"
               variant={"default"}
             >
               Live{" "}
-              <FaExternalLinkAlt className="absolute top-1 right-1 text-xs" />
+              <FaExternalLinkAlt className="  text-xs" />
             </Button>
           </Link>
           <Link target="_blank" href={projectData.githubLink}>
-            <Button className="relative w-24" variant={"ghost"}>
+            <Button className="flex items-center justify-center gap-2 hover:cursor-pointer w-24 bg-gray-600 hover:bg-gray-600 text-white" variant={"default"}>
               Github{" "}
-              <FaExternalLinkAlt className="absolute top-1 right-0 text-xs" />
+              <FaExternalLinkAlt className=" text-xs" />
             </Button>
           </Link>
         </div>

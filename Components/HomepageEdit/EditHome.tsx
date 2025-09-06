@@ -84,7 +84,7 @@ export default function EditHome({
   return (
     <div>
       <Drawer>
-        <DrawerTrigger>
+        <DrawerTrigger className="edit">
           <Button>
             <EditIcon />
             <h1 className="hidden sm:block">Edit content</h1>

@@ -44,7 +44,7 @@ export default function SkillPage({ skillSection }: SkillSectionProps) {
         <h1 className="description">{skillSection.skillHeading}</h1>
         <p className="content">{skillSection.skillDescription}</p>
 
-        <div className="flex flex-wrap justify-start gap-3 mt-6">
+        <div className="flex flex-wrap sm:justify-start justify-end gap-3 mt-6">
           {skillSection.skills.map((skill) => {
             const Icon = iconMap[skill.skillIcon]; // string → component
             const isDarkTheme = theme === "dark";

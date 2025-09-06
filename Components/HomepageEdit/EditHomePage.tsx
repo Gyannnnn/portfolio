@@ -13,7 +13,7 @@ export default async function EditHomePage() {
     console.log(role);
     if (user) {
       return (
-        <div className="absolute sm:top-28 sm:right-16 right-0 top-24">
+        <div className="">
           <EditHome
             role={role as string}
             token={token as string}
@@ -23,6 +23,6 @@ export default async function EditHomePage() {
       );
     }
   } catch (error) {
-    return <div>ddd</div>;
+    return <div>Something Went wrong</div>;
   }
 }

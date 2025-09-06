@@ -5,8 +5,7 @@ import React from "react";
 import { experienceSection } from "@/app/types/type";
 import axios from "axios";
 import EditExperience from "@/Components/ExperiencepageEdit/EditExperience";
-
-
+import { auth } from "@/auth";
 
 const code = `
 const experience = [
@@ -47,7 +46,7 @@ export default async function ExperiancePage() {
   );
   const data = res.data;
   console.log(data.experienceSection.experience);
-
+  const session = await auth();
   const timelineData = data.experienceSection.experience.map((exp) => ({
     title: exp.experienceName,
     date: new Date(exp.joiningDate).toLocaleDateString("en-US", {
@@ -59,12 +58,16 @@ export default async function ExperiancePage() {
 
   return (
     <div className="container">
-      <EditExperience
-        experienceSectionProps={{
-          portfolioId: data.experienceSection.portfolioId,
-          experienceSectionId: data.experienceSection.id,
-        }}
-      />
+      {session?.user ? (
+        <EditExperience
+          experienceSectionProps={{
+            portfolioId: data.experienceSection.portfolioId,
+            experienceSectionId: data.experienceSection.id,
+          }}
+        />
+      ) : (
+        ""
+      )}
       <div className="contentContainer">
         <h1 className="heading">Experience</h1>
         <h1 className="description">

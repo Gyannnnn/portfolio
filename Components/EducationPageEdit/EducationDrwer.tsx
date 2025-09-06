@@ -112,10 +112,10 @@ export default function EducationDrawer({
   return (
     <div>
       <Drawer>
-        <DrawerTrigger>
+        <DrawerTrigger className="edit">
           <Button>
             <EditIcon />
-            Edit content
+            <h1 className="hidden sm:block">Edit content</h1>
           </Button>
         </DrawerTrigger>
         <DrawerContent className="flex flex-col items-center">

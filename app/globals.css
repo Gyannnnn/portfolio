@@ -221,6 +221,9 @@ body {
   .statsCount {
     @apply text-6xl font-bold pb-2;
   }
+  .edit{
+    @apply absolute top-24 sm:right-10 right-2 
+  }
 }
 
 ::-webkit-scrollbar {

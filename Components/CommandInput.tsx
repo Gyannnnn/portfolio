@@ -83,10 +83,10 @@ const sections = [
     icon: <FaChartBar className="text-lg" />,
   },
   {
-    sectionName:"Manage content",
-    link:"/signin",
-    icon:<FaEdit className="text-lg" />
-  }
+    sectionName: "Manage content",
+    link: "/signin",
+    icon: <FaEdit className="text-lg" />,
+  },
 ];
 
 export default function Commandinput() {
@@ -108,7 +108,7 @@ export default function Commandinput() {
 
   return (
     <>
-      <div className="max-sm:w-screen flex justify-around max-sm:px-2 sm:justify-between gap-2">
+      <div className="max-sm:w-screen flex justify-around max-sm:px-4 sm:justify-between gap-4">
         <div
           onClick={() => setOpen((open) => !open)}
           className="center gap-4 bg-transparent px-4 py-2 rounded-sm text-muted-foreground border max-sm:w-full justify-start"
@@ -125,7 +125,11 @@ export default function Commandinput() {
           <Link href="https://github.com/gyannnnn" target="_blank">
             <FaGithub />
           </Link>
-          <ThemeToggler />          
+          <ThemeToggler />
+          <MenuIcon
+            onClick={() => setOpen((open) => !open)}
+            className="sm:hidden"
+          />
         </div>
       </div>
       <CommandDialog

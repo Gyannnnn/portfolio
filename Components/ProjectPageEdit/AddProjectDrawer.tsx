@@ -90,10 +90,10 @@ export default function AddProjectDrawer({
   return (
     <div>
       <Drawer>
-        <DrawerTrigger>
+        <DrawerTrigger className="edit">
           <Button>
             <EditIcon />
-            Add New Project
+            <h1 className="sm:block hidden">Add New Project</h1>
           </Button>
         </DrawerTrigger>
         <DrawerContent className="flex flex-col items-center max-h-screen overflow-y-auto p-4">
