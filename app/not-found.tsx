@@ -11,7 +11,7 @@ export default function NotFound() {
           <h2 className="mt-4 text-3xl font-semibold">Page Not Found</h2>
           <p className="mt-2 max-w-md text-gray-500 dark:text-gray-400">
             Sorry, the page you are looking for doesn’t exist or may have been
-            moved.
+            moved. 
           </p>
           <Link
             href="/"
