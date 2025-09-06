@@ -16,6 +16,7 @@ export default function GithubGraph() {
         fontSize={14}
         year="last"
       />
+      
     </div>
   );
 }
