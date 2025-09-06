@@ -26,9 +26,7 @@ export default async function Profile() {
   };
 
   return (
-    <div className="container">   
-
-      {/* Profile Card */}
+    <div className="container">     
       <Card className="w-full shadow-lg border-2">
         <CardHeader className="items-center text-center pb-8">
           <div className="relative">

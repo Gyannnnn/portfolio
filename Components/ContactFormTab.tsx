@@ -67,7 +67,7 @@ export default function ContactFormTab() {
     }
   }
   return (
-    <div className="flex w-full max-w-sm flex-col gap-6 ">
+    <div className="flex w-full max-w-sm flex-col  gap-6 ">
       <Tabs className="sm:w-1/2" defaultValue="account">
         <TabsList>
           <TabsTrigger value="account">Form</TabsTrigger>

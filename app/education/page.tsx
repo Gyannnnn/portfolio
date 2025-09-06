@@ -26,7 +26,7 @@ export const metadata: Metadata = generateSEOMetadata({
     "software engineering education"
   ],
   canonicalUrl: "https://your-portfolio-domain.com/education", // Replace with actual domain
-  ogImage: "/profile/profile.jpeg",
+  ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",
 });

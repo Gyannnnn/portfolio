@@ -125,7 +125,7 @@ export default function ExperienceDrawer({
           </DrawerHeader>
           <form
             onSubmit={handleSubmit}
-            className="sm:w-1/2 flex flex-col gap-4"
+            className="drawer"
           >
             <div className="flex flex-col gap-2">
               <Label>Experience Heading</Label>
@@ -158,7 +158,7 @@ export default function ExperienceDrawer({
           </form>
           <form
             onSubmit={addExperienceHandler}
-            className="sm:w-1/2 flex flex-col gap-4"
+            className="drawer"
           >
             <h1>Add new Experience</h1>
             <div className="flex flex-col gap-2">
@@ -196,7 +196,7 @@ export default function ExperienceDrawer({
             </Button>
           </form>
           <DrawerClose className="mt-2 mb-10">
-            <Button variant="outline">Cancel</Button>
+            <Button type="button" variant="outline">Cancel</Button>
           </DrawerClose>
         </DrawerContent>
         <Toaster position="top-center" />

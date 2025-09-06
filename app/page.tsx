@@ -1,4 +1,3 @@
-
 import BottomNav from "@/Components/BottomNav";
 import CodeComponent from "@/Components/CodeComponent";
 import { Button } from "@/components/ui/button";
@@ -11,13 +10,17 @@ import { getIntro } from "./actions/getIntroduction";
 import Link from "next/link";
 import EditContent from "@/Components/HomepageEdit/EditHomePage";
 import { auth } from "@/auth";
-import { generateMetadata as generateSEOMetadata, generatePortfolioStructuredData } from "@/components/seo";
+import {
+  generateMetadata as generateSEOMetadata,
+  generatePortfolioStructuredData,
+} from "@/components/seo";
 import StructuredData from "@/components/seo/StructuredData";
 import { Metadata } from "next";
 
 export const metadata: Metadata = generateSEOMetadata({
   title: "Gyanranjan Patra | VSSUT Burla Developer Portfolio",
-  description: "Welcome to Gyanranjan Patra's portfolio. A skilled full-stack developer and VSSUT Burla graduate specializing in React, Next.js, Node.js, and modern web technologies. Explore my projects, skills, and experience.",
+  description:
+    "Welcome to Gyanranjan Patra's portfolio. A skilled full-stack developer and VSSUT Burla graduate specializing in React, Next.js, Node.js, and modern web technologies. Explore my projects, skills, and experience.",
   keywords: [
     "Gyanranjan Patra",
     "Gyanaranjan Patra VSSUT",
@@ -37,10 +40,10 @@ export const metadata: Metadata = generateSEOMetadata({
     "frontend developer",
     "backend developer",
     "VSSUT Burla graduate",
-    "software development portfolio"
+    "software development portfolio",
   ],
   canonicalUrl: "https://your-portfolio-domain.com", // Replace with actual domain
-  ogImage: "/profile/profile.jpeg",
+  ogImage: "/profile/og.png",
   ogType: "website",
   twitterCard: "summary_large_image",
 });
@@ -72,18 +75,15 @@ const links = {
 };
 
 export default async function page() {
-  const data = await getIntro();  
-  const session = await auth()
+  const data = await getIntro();
+  const session = await auth();
   const introPageData = data.data.introduction;
   if (data.statusText === "OK") {
     return (
       <div className="container ">
         <StructuredData data={generatePortfolioStructuredData()} />
-        {
-            session?.user?<EditContent/>:""
-          }
+        {session?.user ? <EditContent /> : ""}
         <div className="contentContainer">
-          
           <h1 className="heading">{introPageData.userName}</h1>
           <h1 className="text-3xl font-bold dark:text-gray-400 text-gray-500">
             {introPageData.userHeading}
@@ -103,8 +103,10 @@ export default async function page() {
               </Button>
             </Link>
           </div>
-          <h1>welcome.ts</h1>
-          <CodeComponent code={code} />
+          <div>
+            <h1>welcome.ts</h1>
+            <CodeComponent code={code} />
+          </div>
 
           <BottomNav links={links} />
         </div>

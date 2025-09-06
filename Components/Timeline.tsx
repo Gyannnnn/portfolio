@@ -13,7 +13,7 @@ type TimelineProps = {
 
 export default function Timeline({ data }: TimelineProps) {
   return (
-    <div className="relative border-l border-gray-300 dark:border-gray-600 pl-6 mt-6">
+    <div className="relative border-l border-gray-300 dark:border-gray-600 pl-2 ml-2 mt-6">
       {data.map((item, idx) => (
         <div key={idx} className="mb-10 ml-4">
           <div className="absolute w-3 h-3 bg-blue-500 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900"></div>

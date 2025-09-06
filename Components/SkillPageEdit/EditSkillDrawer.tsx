@@ -126,7 +126,7 @@ export default function EditSkillDrawer({
           </DrawerHeader>
           <form
             onSubmit={handleSubmit}
-            className="sm:w-1/2 flex flex-col gap-4"
+            className="drawer"
           >
             <div className="flex flex-col gap-2">
               <Label>Skill Heading</Label>
@@ -157,7 +157,7 @@ export default function EditSkillDrawer({
           </form>
           <form
             onSubmit={addSkillHandler}
-            className="sm:w-1/2 flex flex-col gap-4"
+            className="drawer"
           >
             <h1>Add new skill</h1>
             <div className="flex flex-col gap-2">
@@ -195,7 +195,7 @@ export default function EditSkillDrawer({
             </Button>
           </form>
           <DrawerClose className="mt-2 mb-10">
-            <Button variant="outline">Cancel</Button>
+            <Button type="button" variant="outline">Cancel</Button>
           </DrawerClose>
         </DrawerContent>
         <Toaster position="top-center" />

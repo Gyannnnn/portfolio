@@ -45,15 +45,14 @@ export default function SigninForm() {
   };
 
   return (
-    <div className="container">
-      {/* Header Section */}
+    <div className="container">     
 
       <div className="contentContainer">
         <h1 className="heading">Sign In</h1>
         <h2 className="description">Sign in to manage the content</h2>
 
         {/* Sign In Form */}
-        <div className="bg-muted/30 rounded-2xl p-8 border">
+        <div className="bg-muted/30 rounded-2xl p-8 border ">
           <form
             onSubmit={handleSubmit}
             method="post"

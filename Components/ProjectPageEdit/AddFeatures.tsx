@@ -85,21 +85,21 @@ export default function AddFeatures({
             <DrawerTitle>Edit Projects details</DrawerTitle>
             <DrawerDescription>This action cannot be undone.</DrawerDescription>
           </DrawerHeader>
-          <form onSubmit={handleSubmit} className="w-1/2 flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="drawer">
             <div className="flex flex-col gap-2">
               <Label>Add fetaure</Label>
               <Input name="feature" placeholder="Enter feature"></Input>
             </div>
             <Button type="submit">Add feature</Button>
           </form>
-          <form onSubmit={handleSubmit} className="w-1/2 flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="drawer">
             <div className="flex flex-col gap-2">
               <Label>Add challenge</Label>
               <Input name="challenge" placeholder="Enter feature"></Input>
             </div>
             <Button type="submit">Add challenge</Button>
           </form>
-          <form onSubmit={handleSubmit} className="w-1/2 flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="drawer">
             <div className="flex flex-col gap-2">
               <Label>Add learning</Label>
               <Input name="learning" placeholder="Enter learning"></Input>

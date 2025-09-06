@@ -8,7 +8,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = generateSEOMetadata({
   title: "About Gyanranjan Patra | VSSUT Burla Developer",
-  description: "Learn about Gyanranjan Patra, a passionate full-stack developer and VSSUT Burla graduate. Discover my journey, skills, and passion for creating innovative web solutions.",
+  description:
+    "Learn about Gyanranjan Patra, a passionate full-stack developer and VSSUT Burla graduate. Discover my journey, skills, and passion for creating innovative web solutions.",
   keywords: [
     "About Gyanranjan Patra",
     "Gyanaranjan Patra VSSUT",
@@ -24,10 +25,10 @@ export const metadata: Metadata = generateSEOMetadata({
     "MongoDB",
     "PostgreSQL",
     "developer story",
-    "programming journey"
+    "programming journey",
   ],
   canonicalUrl: "https://your-portfolio-domain.com/about", // Replace with actual domain
-  ogImage: "/profile/profile.jpeg",
+  ogImage: "/profile/og.png",
   ogType: "profile",
   twitterCard: "summary_large_image",
 });
@@ -70,14 +71,16 @@ export default async function AboutPage() {
     return (
       <div className="container">
         <div className="contentContainer">
-          <EditAbout/>
+          <EditAbout />
           <h1 className="heading">About Gyanranjan</h1>
           <h1 className="description">{aboutPageData.aboutHeading}</h1>
           <p className="content">{aboutPageData.about}</p>
 
-          <h1>aboutMe.ts</h1>
-          <div className="overflow-x-scroll">
-            <CodeComponent code={code} />
+          <div>
+            <h1>aboutMe.ts</h1>
+            <div className="overflow-x-scroll">
+              <CodeComponent code={code} />
+            </div>
           </div>
 
           <div>
