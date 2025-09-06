@@ -12,13 +12,12 @@ export default function Footer() {
       transition-all duration-300 ease-in-out">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-28">
-        {/* Main Footer Content */}
+        
         <div className="flex flex-col items-center justify-center space-y-4 text-sm max-sm:text-xs">
-          
-          {/* Copyright and Tech Stack */}
+         
           <div className="flex flex-wrap items-center justify-center gap-4 max-sm:flex-col max-sm:gap-2">
             <p className="text-gray-500 dark:text-gray-400 font-medium">
-              © 2018 - 2025
+              © 2025
             </p>
             
             <div className="flex flex-wrap items-center justify-center gap-2 text-center">

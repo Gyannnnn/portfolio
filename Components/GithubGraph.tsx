@@ -15,7 +15,9 @@ export default function GithubGraph() {
         blockMargin={5}
         fontSize={14}
         year="last"
-      />
+      />     
+      
+       
     </div>
   );
 }
