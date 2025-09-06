@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import { FaEye, FaRegHeart, FaGithub, FaCode, FaUsers, FaBuilding, FaMapMarkerAlt, FaCheckCircle } from "react-icons/fa";
+import { FaEye, FaRegHeart,  FaCode, FaUsers, FaBuilding, FaMapMarkerAlt, FaCheckCircle } from "react-icons/fa";
 
 
 import GithubGraph from "@/Components/GithubGraph";

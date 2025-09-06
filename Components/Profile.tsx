@@ -26,40 +26,58 @@ export default async function Profile() {
   };
 
   return (
-    <div className="container py-8">
-      <Card className="max-w-md mx-auto">
-        <CardHeader className="items-center text-center">
-          <Avatar className="h-24 w-24 mb-4">
-            <AvatarImage src="/profile/profile.jpeg" alt="Profile picture" />
-            <AvatarFallback className="text-lg">
-              {session?.user?.name ? getInitials(session.user.name) : "US"}
-            </AvatarFallback>
-          </Avatar>
-          <CardTitle className="text-2xl">
+    <div className="container">   
+
+      {/* Profile Card */}
+      <Card className="w-full shadow-lg border-2">
+        <CardHeader className="items-center text-center pb-8">
+          <div className="relative">
+            <Avatar className="h-32 w-32 mb-6 ring-4 ring-primary/20">
+              <AvatarImage src="/profile/profile.jpeg" alt="Profile picture" />
+              <AvatarFallback className="text-2xl font-bold">
+                {session?.user?.name ? getInitials(session.user.name) : "US"}
+              </AvatarFallback>
+            </Avatar>
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-background"></div>
+          </div>
+          <CardTitle className="text-3xl font-bold">
             {session?.user?.name || "User"}
           </CardTitle>
-          <CardDescription>Your Profile Information</CardDescription>
+          <CardDescription className="text-lg text-muted-foreground">
+            Portfolio {session?.user?.role}
+          </CardDescription>
         </CardHeader>
 
-        <CardContent className="space-y-4">
-          <Separator />
+        <CardContent className="space-y-8 px-8 pb-8">
+          <Separator className="my-6" />
 
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-muted-foreground">Email</h3>
-            <p className="text-lg">
-              {session?.user?.email || "No email provided"}
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-3">
+              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                Email Address
+              </h3>
+              <p className="text-lg font-medium break-all">
+                {session?.user?.email || "No email provided"}
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                Role
+              </h3>
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-semibold capitalize">
+                  {session?.user?.role || "No role specified"}
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-muted-foreground">Role</h3>
-            <p className="text-lg capitalize">
-              {session?.user?.role || "No role specified"}
-            </p>
+          <Separator className="my-6" />
+          
+          <div className="flex justify-center">
+            <Logout />
           </div>
-
-          <Separator />
-          <Logout />
         </CardContent>
       </Card>
     </div>

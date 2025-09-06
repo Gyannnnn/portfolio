@@ -22,7 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const title = await (await params).title;
   const projectName = decodeURI(title);
-  const session = await auth();
+ 
 
   try {
     const res = await axios.get<ProjectDetailsResponse>(

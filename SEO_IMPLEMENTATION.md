@@ -212,3 +212,4 @@ For questions about this SEO implementation, refer to:
 - Next.js Metadata API documentation
 - Google's SEO Starter Guide
 - Schema.org documentation for structured data
+

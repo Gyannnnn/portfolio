@@ -17,8 +17,13 @@ export default function Logout() {
   };
   return (
     <form onSubmit={logout}>
-      <Button type="submit" variant="outline">
-        Logout
+      <Button 
+        type="submit" 
+        variant="outline" 
+        size="lg"
+        className="px-8 py-3 text-base font-semibold hover:bg-destructive hover:text-destructive-foreground transition-colors"
+      >
+        Sign Out
       </Button>
       <Toaster/>
     </form>

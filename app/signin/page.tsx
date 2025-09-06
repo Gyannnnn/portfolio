@@ -6,10 +6,12 @@ import React from 'react'
 export default async function page() {
   const session = await auth();
   return (
-    <div className='container'>
-      {
-        session?.user?<Profile/>:<SigninForm/>
-      }
+    <div className="container">
+      <div className="contentContainer">
+        {
+          session?.user ? <Profile/> : <SigninForm/>
+        }
+      </div>
     </div>
   )
 }
