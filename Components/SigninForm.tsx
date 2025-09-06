@@ -8,6 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { LoaderCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import HowItWorks from "./HowItWorks";
 
 
 export default function SigninForm() {
@@ -57,7 +58,7 @@ export default function SigninForm() {
           <div className="flex flex-col gap-2">
             <Label>Email</Label>
             <Input
-              required
+             required
               name="email"
               id="email"
               placeholder="Enter email"
@@ -67,7 +68,7 @@ export default function SigninForm() {
           <div className="flex flex-col gap-2">
             <Label>Password</Label>
             <Input
-              required
+             required
               name="password"
               id="passowrd"
               placeholder="Enter password"
@@ -83,6 +84,7 @@ export default function SigninForm() {
               "Sign in"
             )}
           </Button>
+          <HowItWorks/>
           <Toaster />
         </form>
       </div>

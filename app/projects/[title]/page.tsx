@@ -8,7 +8,10 @@ import { ProjectDetailsResponse } from "@/app/types/type";
 import ProjectDrawer from "@/Components/ProjectPageEdit/ProjectDrawer";
 import { auth } from "@/auth";
 import AddFeatures from "@/Components/ProjectPageEdit/AddFeatures";
-import { generateMetadata as generateSEOMetadata, generateProjectStructuredData } from "@/components/seo";
+import {
+  generateMetadata as generateSEOMetadata,
+  generateProjectStructuredData,
+} from "@/components/seo";
 import StructuredData from "@/components/seo/StructuredData";
 import { Metadata } from "next";
 
@@ -19,16 +22,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const title = await (await params).title;
   const projectName = decodeURI(title);
-  
+  const session = await auth();
+
   try {
     const res = await axios.get<ProjectDetailsResponse>(
       `https://portfolio-be-flame.vercel.app/api/v1/projects/project/${projectName}`
     );
     const projectData = res.data.results;
-    
+
     return generateSEOMetadata({
       title: `${projectData.projectName} | Gyanranjan Patra Portfolio`,
-      description: `${projectData.projectDescription.substring(0, 150)}... Built with ${projectData.techStack.join(', ')} by Gyanranjan Patra, VSSUT Burla graduate.`,
+      description: `${projectData.projectDescription.substring(0, 150)}... Built with ${projectData.techStack.join(", ")} by Gyanranjan Patra, VSSUT Burla graduate.`,
       keywords: [
         projectData.projectName,
         ...projectData.techStack,
@@ -36,7 +40,7 @@ export async function generateMetadata({
         "VSSUT Burla",
         "portfolio project",
         "web development",
-        "full-stack development"
+        "full-stack development",
       ],
       canonicalUrl: `https://your-portfolio-domain.com/projects/${title}`, // Replace with actual domain
       ogImage: "/projects/veerpreps.png", // You can make this dynamic based on project
@@ -47,7 +51,12 @@ export async function generateMetadata({
     return generateSEOMetadata({
       title: `${projectName} | Gyanranjan Patra Portfolio`,
       description: `Project ${projectName} by Gyanranjan Patra, VSSUT Burla graduate.`,
-      keywords: [projectName, "Gyanranjan Patra", "VSSUT Burla", "portfolio project"],
+      keywords: [
+        projectName,
+        "Gyanranjan Patra",
+        "VSSUT Burla",
+        "portfolio project",
+      ],
     });
   }
 }
@@ -69,7 +78,7 @@ export default async function ProjectDetails({
 
   return (
     <div className="container">
-      <StructuredData 
+      <StructuredData
         data={generateProjectStructuredData({
           name: projectData.projectName,
           description: projectData.projectDescription,
@@ -110,9 +119,15 @@ export default async function ProjectDetails({
             </Button>
           ))}
         </div>
-        {
-          session?.user?<AddFeatures token="" role="" id="" />:""
-        }
+        {session?.user ? (
+          <AddFeatures
+            token={session.user.jwt_token as string}
+            role={session.user.role}
+            id={data.results.id}
+          />
+        ) : (
+          ""
+        )}
         <div className="w-full flex max-sm:flex-col max-sm:gap-4 flex-wrap ">
           <div className="w-1/2 flex flex-col justify-start max-sm:w-full">
             <h1 className="text-lg font-bold">Features</h1>
@@ -162,14 +177,15 @@ export default async function ProjectDetails({
               className="bg-purple-500 text-white hover:bg-purple-500  w-20 flex items-center justify-center gap-2 hover:cursor-pointer"
               variant={"default"}
             >
-              Live{" "}
-              <FaExternalLinkAlt className="  text-xs" />
+              Live <FaExternalLinkAlt className="  text-xs" />
             </Button>
           </Link>
           <Link target="_blank" href={projectData.githubLink}>
-            <Button className="flex items-center justify-center gap-2 hover:cursor-pointer w-24 bg-gray-600 hover:bg-gray-600 text-white" variant={"default"}>
-              Github{" "}
-              <FaExternalLinkAlt className=" text-xs" />
+            <Button
+              className="flex items-center justify-center gap-2 hover:cursor-pointer w-24 bg-gray-600 hover:bg-gray-600 text-white"
+              variant={"default"}
+            >
+              Github <FaExternalLinkAlt className=" text-xs" />
             </Button>
           </Link>
         </div>
