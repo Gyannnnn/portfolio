@@ -126,7 +126,7 @@ export default async function StatsPage() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <Card className="group hover:shadow-xl transition-all duration-500 border-2 hover:border-purple-200 dark:hover:border-purple-800 hover:scale-105 bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/10 dark:to-background">
+          <Card className="group hover:shadow-xl transition-all duration-500 border-2 hover:border-purple-200 dark:hover:border-purple-800  bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/10 dark:to-background">
             <CardHeader className="pb-6">
               <div className="flex items-center gap-4">
                 <div className="p-4 bg-purple-100 dark:bg-purple-900/30 rounded-2xl group-hover:scale-110 transition-transform duration-300">
@@ -146,13 +146,13 @@ export default async function StatsPage() {
                   {data.data.views.toLocaleString()}
                 </div>
                 <p className="text-sm text-muted-foreground max-w-xs mx-auto leading-relaxed">
-                  Unique page visits since July 2025
+                  Unique page visits since August 2025
                 </p>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-xl transition-all duration-500 border-2 hover:border-red-200 dark:hover:border-red-800 hover:scale-105 bg-gradient-to-br from-red-50 to-white dark:from-red-900/10 dark:to-background">
+          <Card className="group hover:shadow-xl transition-all duration-500 border-2 hover:border-red-200 dark:hover:border-red-800 bg-gradient-to-br from-red-50 to-white dark:from-red-900/10 dark:to-background">
             <CardHeader className="pb-6">
               <div className="flex items-center gap-4">
                 <div className="p-4 bg-red-100 dark:bg-red-900/30 rounded-2xl group-hover:scale-110 transition-transform duration-300">
