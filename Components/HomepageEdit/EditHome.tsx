@@ -55,7 +55,7 @@ export default function EditHome({
         userGithubId
       );
       const res = await axios.put(
-        "http://localhost:8000/api/v1/intro/update",
+        "https://portfolio-be-flame.vercel.app/api/v1/intro/update",
         {
           userHeading,
           userBio,

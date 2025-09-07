@@ -42,7 +42,7 @@ export default function EditAboutPage({
     setLoading(true);
     try {
       const res = await axios.put(
-        "http://localhost:8000/api/v1/about/update",
+        "https://portfolio-be-flame.vercel.app/api/v1/about/update",
         {
           aboutHeading,
           about,
