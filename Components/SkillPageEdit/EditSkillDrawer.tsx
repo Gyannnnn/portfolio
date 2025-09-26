@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Divide, EditIcon, Loader } from "lucide-react";
+import { EditIcon, Loader } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
